@@ -11,6 +11,8 @@
             --secondary-color: #F5F5DC; /* Beige/Cream */
             --text-color: #333;
             --light-text: #fff;
+            --accent-color: #A0522D; /* Sienna/Dark Tan for accents */
+            --cta-color: #38C713; /* Green for Call to Action */
         }
 
         * {
@@ -141,16 +143,16 @@
             position: relative;
             max-width: 800px;
             margin: 0 auto;
-            overflow: hidden; /* Important to hide slides outside view */
+            overflow: hidden; 
         }
 
         .carousel-inner {
             display: flex;
-            transition: transform 0.5s ease-in-out; /* Smooth slide transition */
+            transition: transform 0.5s ease-in-out; 
         }
 
         .carousel-item {
-            min-width: 100%; /* Each item takes full width of wrapper */
+            min-width: 100%; 
             flex-shrink: 0;
             height: 400px;
             background-size: cover;
@@ -197,12 +199,23 @@
         .menu {
             padding: 4rem 0;
             text-align: center;
+            background-color: var(--secondary-color);
         }
 
         .menu h2 {
             font-size: 2.5rem;
             margin-bottom: 2rem;
             color: var(--primary-color);
+        }
+
+        .menu-category h3 {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
         }
 
         .menu-grid {
@@ -217,13 +230,24 @@
             padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .menu-item h3 {
-            color: var(--primary-color);
+        .item-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 0.5rem;
         }
 
+        .menu-item h4 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        
         .menu-item p {
             font-size: 0.9rem;
             color: #666;
@@ -232,7 +256,36 @@
         .price {
             font-weight: bold;
             color: var(--primary-color);
-            float: right;
+            font-size: 1.2rem;
+        }
+
+        /* --- STICKY CTA BUTTON STYLES --- */
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--cta-color);
+            color: var(--light-text);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: background-color 0.3s, transform 0.3s;
+            z-index: 1000; /* Ensure it stays above all content */
+        }
+
+        .sticky-cta:hover {
+            background-color: #2F9C0E; /* Darker green on hover */
+            transform: scale(1.05);
+        }
+        /* Using a basic text representation of the phone icon since we are not using an icon library (like Font Awesome) */
+        .sticky-cta::after {
+            content: '☎'; 
         }
 
         /* Footer */
@@ -272,11 +325,20 @@
             }
 
             .menu-grid {
-                grid-template-columns: 1fr; /* Stack items vertically on smaller screens */
+                grid-template-columns: 1fr;
             }
 
             .carousel-item {
                 height: 300px;
+            }
+
+            /* Adjust CTA for smaller screens */
+            .sticky-cta {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+                bottom: 15px;
+                right: 15px;
             }
         }
     </style>
@@ -304,23 +366,23 @@
             <div class="hero-content">
                 <h1>Your Daily Dose of Delight</h1>
                 <p>Finest single-origin beans, roasted with care.</p>
-                <a href="#specials" class="btn">See Specials</a>
+                <a href="#menu" class="btn">View Full Menu</a>
             </div>
         </section>
         
         <section id="specials" class="carousel-section">
             <div class="container" style="flex-direction: column;">
-                <h2>ယနေ့ရရှိနိုင်သော ကော်ဖီများ</h2>
+                <h2>Today's Featured Specials 🌟</h2>
                 <div class="carousel-wrapper">
                     <div class="carousel-inner" id="carousel-inner">
                         <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1061');">
-                            Winter Spice Latte
+                            Seasonal Winter Blend Latte
                         </div>
                         <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1169');">
-                            Artisan Scones - Limited Time!
+                            Fresh Artisan Scones - Limited Time!
                         </div>
                         <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1541167760496-1628856ab772?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1337');">
-                            20% Off All Cold Brew After 3 PM
+                            20% Off Cold Brew After 3 PM
                         </div>
                     </div>
                     <button id="prev-btn" class="carousel-control">&lt;</button>
@@ -329,28 +391,83 @@
             </div>
         </section>
         <section id="menu" class="menu">
-            <div class="container">
-                <h2>Our Specialties</h2>
+            <div class="container" style="flex-direction: column; align-items: stretch;">
+                <h2>Our Full Menu</h2>
+                
+                <div class="menu-category">
+                    <h3>☕ Espresso & Coffee</h3>
+                </div>
+
                 <div class="menu-grid">
                     <div class="menu-item">
-                        <span class="price">$4.50</span>
-                        <h3>Espresso Classic</h3>
+                        <div class="item-info">
+                            <h4>Espresso Classic</h4>
+                            <span class="price">$4.50</span>
+                        </div>
                         <p>Rich, full-bodied shot of our signature blend.</p>
                     </div>
                     <div class="menu-item">
-                        <span class="price">$5.25</span>
-                        <h3>Latte Macchiato</h3>
+                        <div class="item-info">
+                            <h4>Americano</h4>
+                            <span class="price">$3.75</span>
+                        </div>
+                        <p>Espresso shots diluted with hot water. Bold and simple.</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Latte Macchiato</h4>
+                            <span class="price">$5.25</span>
+                        </div>
                         <p>Steamed milk, topped with a layered espresso shot.</p>
                     </div>
                     <div class="menu-item">
-                        <span class="price">$6.00</span>
-                        <h3>Iced Caramel Frappe</h3>
-                        <p>Blended ice coffee with caramel syrup and whipped cream.</p>
+                        <div class="item-info">
+                            <h4>Cappuccino</h4>
+                            <span class="price">$5.00</span>
+                        </div>
+                        <p>Equal parts espresso, steamed milk, and velvety foam.</p>
                     </div>
                     <div class="menu-item">
-                        <span class="price">$3.50</span>
-                        <h3>Fresh Croissant</h3>
+                        <div class="item-info">
+                            <h4>Cold Brew</h4>
+                            <span class="price">$4.75</span>
+                        </div>
+                        <p>Steeped for 20 hours for a smooth, low-acid finish.</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Iced Caramel Frappe</h4>
+                            <span class="price">$6.00</span>
+                        </div>
+                        <p>Blended ice coffee with caramel syrup and whipped cream.</p>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>🥐 Fresh Pastries & Snacks</h3>
+                </div>
+                
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Fresh Croissant</h4>
+                            <span class="price">$3.50</span>
+                        </div>
                         <p>Buttery, flaky pastry baked fresh every morning.</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Blueberry Muffin</h4>
+                            <span class="price">$3.25</span>
+                        </div>
+                        <p>Moist muffin packed with sweet, ripe blueberries.</p>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h4>Chocolate Chip Cookie</h4>
+                            <span class="price">$2.50</span>
+                        </div>
+                        <p>Classic warm, chewy cookie with generous chocolate chips.</p>
                     </div>
                 </div>
             </div>
@@ -370,6 +487,9 @@
     <footer class="footer">
         <p>&copy; <span id="current-year"></span> The Daily Grind. All rights reserved.</p>
     </footer>
+    
+    <a href="tel:5551234567" class="sticky-cta" aria-label="Call The Daily Grind"></a>
+
 
     <script>
         // JS for the design
