@@ -1,16 +1,309 @@
-<html>
-	
-	<head>
-		<title>Brew Squared Coffee</title>
-		<style type='css'>
-			body {
-				background-color: 'green';
-				font-size: 30px;
-				color: 'blue';
-			}
-		</style>
-	</head>
-	<body>
-		<h1>It Works!</h1>
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Grind - Coffee Shop</title>
+    <style>
+        /* CSS for the design */
+        :root {
+            --primary-color: #6F4E37; /* Coffee Brown */
+            --secondary-color: #F5F5DC; /* Beige/Cream */
+            --text-color: #333;
+            --light-text: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+        }
+
+        /* Header and Navigation */
+        .header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('https://via.placeholder.com/1200x600/6F4E37/F5F5DC?text=Coffee+Shop+Interior'); /* Placeholder image */
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--light-text);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+        }
+
+        .hero-content {
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #E5E5C9;
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .menu h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .menu-item {
+            background-color: var(--light-text);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .price {
+            font-weight: bold;
+            color: var(--primary-color);
+            float: right;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* Responsive Design (Media Query) */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav ul {
+                flex-direction: column;
+                margin-top: 1rem;
+            }
+
+            .nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            .hero {
+                height: 50vh;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr; /* Stack items vertically on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#">The Daily Grind</a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Your Daily Dose of Delight</h1>
+                <p>Finest single-origin beans, roasted with care.</p>
+                <a href="#menu" class="btn">View Menu</a>
+            </div>
+        </section>
+
+        <section id="menu" class="menu">
+            <div class="container">
+                <h2>Our Specialties</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <span class="price">$4.50</span>
+                        <h3>Espresso Classic</h3>
+                        <p>Rich, full-bodied shot of our signature blend.</p>
+                    </div>
+                    <div class="menu-item">
+                        <span class="price">$5.25</span>
+                        <h3>Latte Macchiato</h3>
+                        <p>Steamed milk, topped with a layered espresso shot.</p>
+                    </div>
+                    <div class="menu-item">
+                        <span class="price">$6.00</span>
+                        <h3>Iced Caramel Frappe</h3>
+                        <p>Blended ice coffee with caramel syrup and whipped cream.</p>
+                    </div>
+                    <div class="menu-item">
+                        <span class="price">$3.50</span>
+                        <h3>Fresh Croissant</h3>
+                        <p>Buttery, flaky pastry baked fresh every morning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="menu">
+            <div class="container">
+                <h2>Find Us</h2>
+                <p>123 Coffee Lane, City, State 54321</p>
+                <p>Open Daily: 7:00 AM - 6:00 PM</p>
+                <p>Phone: (555) 123-4567</p>
+                <button id="alert-button" class="btn">Click for Special Offer</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; <span id="current-year"></span> The Daily Grind. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JS for the design
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Update Current Year in Footer
+            const currentYearElement = document.getElementById('current-year');
+            const currentYear = new Date().getFullYear();
+            if (currentYearElement) {
+                currentYearElement.textContent = currentYear;
+            }
+
+            // 2. Simple Button Interaction (Minimal JS)
+            const alertButton = document.getElementById('alert-button');
+            if (alertButton) {
+                alertButton.addEventListener('click', function() {
+                    alert('🎉 Enjoy 10% off your next order!');
+                });
+            }
+
+            // 3. Smooth Scrolling (Basic implementation)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
 </html>
