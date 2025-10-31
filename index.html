@@ -68,7 +68,15 @@
             text-decoration: none;
             font-size: 1.8rem;
             font-weight: bold;
+            /* Optional: Adjust vertical alignment for the icon */
+            display: flex;
+            align-items: center;
         }
+
+        .logo a .icon {
+            margin-right: 5px;
+        }
+
 
         .nav ul {
             list-style: none;
@@ -348,7 +356,10 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <a href="#">Brew Squared</a>
+                <a href="#">
+                    <span class="icon">☕</span>
+                    Brew Squared
+                </a>
             </div>
             <nav class="nav">
                 <ul>
