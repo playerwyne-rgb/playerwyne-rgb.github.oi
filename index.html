@@ -20,10 +20,34 @@
         }
 
         body {
-            font-family: 'monospace';
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--secondary-color);
+        }
+
+        /* Container & Utility */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #E5E5C9;
         }
 
         /* Header and Navigation */
@@ -35,15 +59,6 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         .logo a {
@@ -108,19 +123,74 @@
             font-size: 1.2rem;
             margin-bottom: 1.5rem;
         }
-
-        .btn {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s, color 0.3s;
+        
+        /* --- CAROUSEL STYLES --- */
+        .carousel-section {
+            padding: 4rem 0;
+            background-color: var(--light-text);
+            text-align: center;
         }
 
-        .btn:hover {
-            background-color: #E5E5C9;
+        .carousel-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden; /* Important to hide slides outside view */
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out; /* Smooth slide transition */
+        }
+
+        .carousel-item {
+            min-width: 100%; /* Each item takes full width of wrapper */
+            flex-shrink: 0;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-text);
+            font-size: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            border-radius: 8px;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--light-text);
+            border: none;
+            padding: 1rem 0.5rem;
+            cursor: pointer;
+            z-index: 20;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            font-size: 1.5rem;
+        }
+
+        .carousel-control:hover {
+            opacity: 1;
+        }
+
+        #prev-btn {
+            left: 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        #next-btn {
+            right: 0;
+            border-radius: 5px 0 0 5px;
         }
 
         /* Menu Section */
@@ -204,6 +274,10 @@
             .menu-grid {
                 grid-template-columns: 1fr; /* Stack items vertically on smaller screens */
             }
+
+            .carousel-item {
+                height: 300px;
+            }
         }
     </style>
 </head>
@@ -217,6 +291,7 @@
             <nav class="nav">
                 <ul>
                     <li><a href="#home">Home</a></li>
+                    <li><a href="#specials">Specials</a></li>
                     <li><a href="#menu">Menu</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -229,10 +304,30 @@
             <div class="hero-content">
                 <h1>Your Daily Dose of Delight</h1>
                 <p>Finest single-origin beans, roasted with care.</p>
-                <a href="#menu" class="btn">View Menu</a>
+                <a href="#specials" class="btn">See Specials</a>
             </div>
         </section>
-
+        
+        <section id="specials" class="carousel-section">
+            <div class="container" style="flex-direction: column;">
+                <h2>Today's Featured Specials</h2>
+                <div class="carousel-wrapper">
+                    <div class="carousel-inner" id="carousel-inner">
+                        <div class="carousel-item" style="background-image: url('https://via.placeholder.com/800x400/8B4513/fff?text=New%20Winter%20Blend');">
+                            Winter Spice Latte
+                        </div>
+                        <div class="carousel-item" style="background-image: url('https://via.placeholder.com/800x400/A0522D/fff?text=Fresh%20Baked%20Goods');">
+                            Artisan Scones - Limited Time!
+                        </div>
+                        <div class="carousel-item" style="background-image: url('https://via.placeholder.com/D2B48C/333?text=Happy%20Hour%20Discount');">
+                            20% Off All Cold Brew After 3 PM
+                        </div>
+                    </div>
+                    <button id="prev-btn" class="carousel-control">&lt;</button>
+                    <button id="next-btn" class="carousel-control">&gt;</button>
+                </div>
+            </div>
+        </section>
         <section id="menu" class="menu">
             <div class="container">
                 <h2>Our Specialties</h2>
@@ -278,6 +373,35 @@
 
     <script>
         // JS for the design
+
+        // CAROUSEL LOGIC
+        const carouselInner = document.getElementById('carousel-inner');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const items = document.querySelectorAll('.carousel-item');
+        let currentIndex = 0;
+        const totalItems = items.length;
+
+        function updateCarousel() {
+            // Calculates the transform percentage to show the current slide
+            const offset = -currentIndex * 100;
+            carouselInner.style.transform = `translateX(${offset}%)`;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex === 0) ? totalItems - 1 : currentIndex - 1;
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex === totalItems - 1) ? 0 : currentIndex + 1;
+            updateCarousel();
+        });
+
+        // Initial update
+        updateCarousel();
+
+        // GENERAL PAGE LOGIC
         document.addEventListener('DOMContentLoaded', function() {
             // 1. Update Current Year in Footer
             const currentYearElement = document.getElementById('current-year');
