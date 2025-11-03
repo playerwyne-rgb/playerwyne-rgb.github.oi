@@ -1,581 +1,110 @@
-<h3>Latest Coffee Shop Views</h3>
-<div style="width: 100%; text-align: center;">
-
-    <img src="brewsquared1.jpg" 
-         alt="Brew Squared Interior Photo" 
-         style="display: block; width: 100%; max-width: 600px; height: auto; margin: 20px auto;">
-    
-    <img src="brewsquared3.jpg" 
-         alt="Brew Squared Shop Front" 
-         style="display: block; width: 100%; max-width: 600px; height: auto; margin: 20px auto;">
-    
-    <img src="BREWSQUARED PHOTOS.jpg" 
-         alt="Brew Squared Signature Drinks" 
-         style="display: block; width: 100%; max-width: 600px; height: auto; margin: 20px auto;">
-
-</div>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brew Squared - Coffee Shop</title>
+    <title>Brew Squared | Coffee Shop</title>
+    
     <style>
-        /* CSS for the design */
-        :root {
-            --primary-color: #6F4E37; /* Coffee Brown */
-            --secondary-color: #F5F5DC; /* Beige/Cream */
-            --text-color: #333;
-            --light-text: #fff;
-            --accent-color: #A0522D; /* Sienna/Dark Tan for accents */
-            --cta-color: #38C713; /* Green for Call to Action */
-        }
-
-        * {
-            box-sizing: border-box;
+        /* Base Styles for the whole page */
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
         }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--secondary-color);
-        }
-
-        /* Container & Utility */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .btn {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #E5E5C9;
-        }
-
-        /* Header and Navigation */
-        .header {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .logo a {
-            color: var(--light-text);
-            text-decoration: none;
-            font-size: 1.8rem;
-            font-weight: bold;
-            /* Optional: Adjust vertical alignment for the icon */
-            display: flex;
-            align-items: center;
-        }
-
-        .logo a .icon {
-            margin-right: 5px;
-        }
-
-
-        .nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        .nav ul li a {
-            color: var(--light-text);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            display: block;
-            transition: background-color 0.3s;
-        }
-
-        .nav ul li a:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-        }
-
-        /* Hero Section */
-        .hero {
-            background-image: url('https://via.placeholder.com/1200x600/6F4E37/F5F5DC?text=Coffee+Shop+Interior'); /* Placeholder image */
-            background-size: cover;
-            background-position: center;
-            height: 70vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--light-text);
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
-        }
-
-        .hero-content {
-            z-index: 10;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        /* --- CAROUSEL STYLES --- */
-        .carousel-section {
-            padding: 4rem 0;
-            background-color: var(--light-text);
-            text-align: center;
-        }
-
-        .carousel-section h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
-        }
-
-        .carousel-wrapper {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
+        /* 1. CSS for the Hero Section */
+        .hero-section {
+            width: 100%;
+            /* Takes 60% of the viewport height for a dramatic top image */
+            height: 60vh; 
             overflow: hidden; 
+            position: relative;
+            margin-bottom: 40px;
         }
 
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease-in-out; 
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            /* Ensures the image covers the area without distortion */
+            object-fit: cover; 
+            /* Centers the image within the container */
+            object-position: center; 
         }
 
-        .carousel-item {
-            min-width: 100%; 
-            flex-shrink: 0;
-            height: 400px;
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--light-text);
-            font-size: 2rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-            border-radius: 8px;
+        /* 2. CSS for the 3-Column Gallery Section */
+        .gallery-section {
+            padding: 0 20px; 
+            max-width: 1200px; 
+            margin: 0 auto; /* Centers the whole gallery block */
         }
 
-        .carousel-control {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: var(--light-text);
-            border: none;
-            padding: 1rem 0.5rem;
-            cursor: pointer;
-            z-index: 20;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-            font-size: 1.5rem;
-        }
-
-        .carousel-control:hover {
-            opacity: 1;
-        }
-
-        #prev-btn {
-            left: 0;
-            border-radius: 0 5px 5px 0;
-        }
-
-        #next-btn {
-            right: 0;
-            border-radius: 5px 0 0 5px;
-        }
-
-        /* Menu Section */
-        .menu {
-            padding: 4rem 0;
+        .gallery-section h3 {
             text-align: center;
-            background-color: var(--secondary-color);
+            margin-bottom: 30px;
+            font-size: 2em;
+            color: #4E413F; /* Coffee Brown Color */
         }
 
-        .menu h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--primary-color);
+        .image-row {
+            /* Enables side-by-side arrangement (3 columns) */
+            display: flex; 
+            /* Allows images to wrap to the next line on small screens */
+            flex-wrap: wrap; 
+            gap: 20px; 
+            justify-content: center; /* Centers the image row */
         }
 
-        .menu-category h3 {
-            font-size: 2rem;
-            color: var(--accent-color);
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.5rem;
-            display: inline-block;
+        .gallery-item {
+            /* Each image takes roughly 30% of the row space */
+            flex: 1 1 calc(30% - 20px); 
+            min-width: 250px; 
+            max-width: 350px; 
+            overflow: hidden;
+            border-radius: 8px; /* Rounded corners for a modern look */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+            background-color: white;
         }
 
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            text-align: left;
+        .gallery-img {
+            width: 100%;
+            /* Fixed height for uniform gallery appearance */
+            height: 300px; 
+            object-fit: cover;
+            transition: transform 0.3s ease;
         }
 
-        .menu-item {
-            background-color: var(--light-text);
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .item-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .menu-item h4 {
-            color: var(--primary-color);
-            margin: 0;
-            font-size: 1.2rem;
-        }
-        
-        .menu-item p {
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .price {
-            font-weight: bold;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-
-        /* --- STICKY CTA BUTTON STYLES --- */
-        .sticky-cta {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: var(--cta-color);
-            color: var(--light-text);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.8rem;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            transition: background-color 0.3s, transform 0.3s;
-            z-index: 1000; /* Ensure it stays above all content */
-        }
-
-        .sticky-cta:hover {
-            background-color: #2F9C0E; /* Darker green on hover */
-            transform: scale(1.05);
-        }
-        /* Using a basic text representation of the phone icon since we are not using an icon library (like Font Awesome) */
-        .sticky-cta::after {
-            content: '☎'; 
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--primary-color);
-            color: var(--light-text);
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .footer p {
-            margin: 0.5rem 0;
-        }
-
-        /* Responsive Design (Media Query) */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .nav ul {
-                flex-direction: column;
-                margin-top: 1rem;
-            }
-
-            .nav ul li {
-                margin: 0.5rem 0;
-            }
-
-            .hero {
-                height: 50vh;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .carousel-item {
-                height: 300px;
-            }
-
-            /* Adjust CTA for smaller screens */
-            .sticky-cta {
-                width: 50px;
-                height: 50px;
-                font-size: 1.4rem;
-                bottom: 15px;
-                right: 15px;
-            }
+        /* Hover effect: Makes the image slightly zoom in when the mouse is over it */
+        .gallery-img:hover {
+            transform: scale(1.05); 
         }
     </style>
-</head>
+    </head>
 <body>
 
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="#">
-                    <span class="icon">☕</span>
-                    Brew Squared
-                </a>
-            </div>
-            <nav class="nav">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#specials">Specials</a></li>
-                    <li><a href="#menu">Menu</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <section class="hero-section">
+        <img src="image/BREWSQUARED PHOTOS.jpg" alt="Baristas making coffee, high energy" class="hero-image">
+    </section>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h1>Your Daily Dose of Delight</h1>
-                <p>Finest single-origin beans, roasted with care.</p>
-                <a href="#menu" class="btn">View Full Menu</a>
-            </div>
-        </section>
+    <section class="gallery-section">
+        <h3>Our Signature Vibe</h3>
         
-        <section id="specials" class="carousel-section">
-            <div class="container" style="flex-direction: column;">
-                <h2>Today's Featured Specials 🌟</h2>
-                <div class="carousel-wrapper">
-                    <div class="carousel-inner" id="carousel-inner">
-                        <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1061');">
-                            Seasonal Winter Blend Latte
-                        </div>
-                        <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1169');">
-                            Fresh Artisan Scones - Limited Time!
-                        </div>
-                        <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1541167760496-1628856ab772?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1337');">
-                            20% Off Cold Brew After 3 PM
-                        </div>
-                    </div>
-                    <button id="prev-btn" class="carousel-control">&lt;</button>
-                    <button id="next-btn" class="carousel-control">&gt;</button>
-                </div>
+        <div class="image-row">
+            <div class="gallery-item">
+                <img src="image/S_3481695.jpg" alt="Interior Seating Area" class="gallery-img">
             </div>
-        </section>
-        <section id="menu" class="menu">
-            <div class="container" style="flex-direction: column; align-items: stretch;">
-                <h2>Our Full Menu</h2>
-                
-                <div class="menu-category">
-                    <h3>☕ Espresso & Coffee</h3>
-                </div>
-
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <div class="item-info">
-                            <h4>Espresso Classic</h4>
-                            <span class="price">$4.50</span>
-                        </div>
-                        <p>Rich, full-bodied shot of our signature blend.</p>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-info">
-                            <h4>Americano</h4>
-                            <span class="price">$3.75</span>
-                        </div>
-                        <p>Espresso shots diluted with hot water. Bold and simple.</p>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-info">
-                            <h4>Latte Macchiato</h4>
-                            <span class="price">$5.25</span>
-                        </div>
-                        <p>Steamed milk, topped with a layered espresso shot.</p>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-info">
-                            <h4>Cappuccino</h4>
-                            <span class="price">$5.00</span>
-                        </div>
-                        <p>Equal parts espresso, steamed milk, and velvety foam.</p>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-info">
-                            <h4>Cold Brew</h4>
-                            <span class="price">$4.75</span>
-                        </div>
-                        <p>Steeped for 20 hours for a smooth, low-acid finish.</p>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-info">
-                            <h4>Iced Caramel Frappe</h4>
-                            <span class="price">$6.00</span>
-                        </div>
-                        <p>Blended ice coffee with caramel syrup and whipped cream.</p>
-                    </div>
-                </div>
-
-                <div class="menu-category">
-                    <h3>🥐 Fresh Pastries & Snacks</h3>
-                </div>
-                
-                <div class="menu-grid">
-                    <div class="menu-item">
-                        <div class="item-info">
-                            <h4>Fresh Croissant</h4>
-                            <span class="price">$3.50</span>
-                        </div>
-                        <p>Buttery, flaky pastry baked fresh every morning.</p>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-info">
-                            <h4>Blueberry Muffin</h4>
-                            <span class="price">$3.25</span>
-                        </div>
-                        <p>Moist muffin packed with sweet, ripe blueberries.</p>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-info">
-                            <h4>Chocolate Chip Cookie</h4>
-                            <span class="price">$2.50</span>
-                        </div>
-                        <p>Classic warm, chewy cookie with generous chocolate chips.</p>
-                    </div>
-                </div>
+            
+            <div class="gallery-item">
+                <img src="image/S_3481697.jpg" alt="Close-up of fresh coffee beans" class="gallery-img">
             </div>
-        </section>
-
-        <section id="contact" class="menu">
-            <div class="container">
-                <h2>Find Us</h2>
-                <p>123 Coffee Lane, City, State 54321</p>
-                <p>Open Daily: 7:00 AM - 6:00 PM</p>
-                <p>Phone: (555) 123-4567</p>
-                <button id="alert-button" class="btn">Click for Special Offer</button>
+            
+            <div class="gallery-item">
+                <img src="image/S_3481698.jpg" alt="Delicious pastries and coffee cups" class="gallery-img">
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer class="footer">
-        <p>&copy; <span id="current-year"></span> Brew Squared. All rights reserved.</p>
-    </footer>
-    
-    <a href="tel:5551234567" class="sticky-cta" aria-label="Call Brew Squared"></a>
-
-
-    <script>
-        // JS for the design
-
-        // CAROUSEL LOGIC
-        const carouselInner = document.getElementById('carousel-inner');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const items = document.querySelectorAll('.carousel-item');
-        let currentIndex = 0;
-        const totalItems = items.length;
-
-        function updateCarousel() {
-            // Calculates the transform percentage to show the current slide
-            const offset = -currentIndex * 100;
-            carouselInner.style.transform = `translateX(${offset}%)`;
-        }
-
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex === 0) ? totalItems - 1 : currentIndex - 1;
-            updateCarousel();
-        });
-
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex === totalItems - 1) ? 0 : currentIndex + 1;
-            updateCarousel();
-        });
-
-        // Initial update
-        updateCarousel();
-
-        // GENERAL PAGE LOGIC
-        document.addEventListener('DOMContentLoaded', function() {
-            // 1. Update Current Year in Footer
-            const currentYearElement = document.getElementById('current-year');
-            const currentYear = new Date().getFullYear();
-            if (currentYearElement) {
-                currentYearElement.textContent = currentYear;
-            }
-
-            // 2. Simple Button Interaction (Minimal JS)
-            const alertButton = document.getElementById('alert-button');
-            if (alertButton) {
-                alertButton.addEventListener('click', function() {
-                    alert('🎉 Enjoy 10% off your next order!');
-                });
-            }
-
-            // 3. Smooth Scrolling (Basic implementation)
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
-    </script>
-</body>
+    </body>
 </html>
