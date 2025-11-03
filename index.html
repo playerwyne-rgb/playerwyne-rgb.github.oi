@@ -10,12 +10,12 @@
         :root {
             --primary-dark: #2C2C2C; /* Deep Charcoal Black */
             --secondary-cream: #F5F5F5; /* Off-White/Creamy Background */
-            --accent-gold: #B8860B; /* Subtle Gold/Brass Accent */
+            --accent-gold: #B8860B; /* Gold/Brass Accent */
             --text-color: #333;
         }
 
         body {
-            font-family: 'Times New Roman', Times, serif; /* Classic & Elegant Font */
+            font-family: 'Times New Roman', Times, serif; 
             margin: 0;
             padding: 0;
             background-color: var(--secondary-cream);
@@ -59,10 +59,6 @@
             letter-spacing: 2px;
             transition: color 0.3s;
         }
-        
-        .logo:hover {
-             color: var(--accent-gold);
-        }
 
         /* 2. Menu Links Section: ညာဘက်အပေါ်ဒေါင့် */
         .nav-links a {
@@ -89,26 +85,32 @@
             transition: background-color 0.3s;
         }
 
-        .order-btn:hover {
-            background-color: #DAA520;
-        }
-
-        /* --- 3. Hero Section (Image Area) --- */
+        /* --- 3. Hero Section (Image Placeholder) --- */
         .hero-section {
             width: 100%;
-            /* ပုံကို အပေါ်အောက် အနည်းငယ်သာ ပြသပါမယ် */
             height: 50vh; 
-            overflow: hidden; 
+            background-color: #DDD; /* ပုံမရှိချိန်မှာ မြင်နေရမယ့် Gray Color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin-bottom: 70px;
         }
-
-        .hero-image {
+        
+        .hero-section img {
             width: 100%;
             height: 100%;
-            object-fit: cover; 
-            object-position: center; 
+            object-fit: cover;
         }
         
+        .hero-text {
+            color: var(--primary-dark);
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+        }
+
         /* --- 4. Menu Section (Elegant Grid Layout) --- */
         .menu-section {
             padding: 50px 0;
@@ -122,16 +124,11 @@
         }
 
         .menu-item {
-            /* Minimalist Design: အနားသတ်လေးသာ ပါဝင်သည် */
             border: 1px solid #CCC;
             padding: 30px;
             background-color: white;
             text-align: left;
             transition: border-color 0.3s;
-        }
-        
-        .menu-item:hover {
-            border-color: var(--accent-gold);
         }
 
         .menu-item h4 {
@@ -155,22 +152,13 @@
             text-align: center;
             margin-top: 80px;
         }
-        
-        .contact-info h2 {
-            color: white;
-        }
-        
-        .contact-info p {
-            font-size: 1.2em;
-        }
-        
+
         /* --- Footer --- */
         footer {
             background-color: #1A1A1A;
             color: #AAA;
             text-align: center;
             padding: 20px 0;
-            font-size: 0.9em;
         }
 
         /* --- Responsive Design --- */
@@ -205,7 +193,7 @@
 
     <main>
         <section id="home" class="hero-section">
-            <img src="image/BREWSQUARED PHOTOS.jpg" alt="European style cafe interior" class="hero-image">
+            <div class="hero-text">WELCOME TO BREW SQUARED</div>
         </section>
 
         <section id="menu" class="menu-section container">
