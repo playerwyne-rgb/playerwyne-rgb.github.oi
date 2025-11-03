@@ -3,22 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brew Squared | Coffee Shop</title>
+    <title>Brew Squared | Your Coffee Paradise</title>
     
     <style>
-        /* Base Styles for the whole page */
+        /* --- General & Base Styles --- */
+        :root {
+            --coffee-brown: #4E413F;
+            --light-cream: #F5E5DC;
+            --accent-green: #387C1B;
+            --text-color: #333;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: var(--light-cream);
+            color: var(--text-color);
         }
 
-        /* 1. CSS for the Hero Section */
+        h1, h2, h3 {
+            color: var(--coffee-brown);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Navigation Bar (Menu Bar) --- */
+        .navbar {
+            background-color: var(--coffee-brown);
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.8em;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 1em;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-green);
+        }
+        
+        /* Order Button Style */
+        .order-btn {
+            background-color: var(--accent-green);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .order-btn:hover {
+            background-color: #2F6415;
+        }
+
+        /* --- Hero Section Styles (Large Image) --- */
         .hero-section {
             width: 100%;
-            /* Takes 60% of the viewport height for a dramatic top image */
             height: 60vh; 
             overflow: hidden; 
             position: relative;
@@ -28,83 +91,208 @@
         .hero-image {
             width: 100%;
             height: 100%;
-            /* Ensures the image covers the area without distortion */
             object-fit: cover; 
-            /* Centers the image within the container */
             object-position: center; 
         }
 
-        /* 2. CSS for the 3-Column Gallery Section */
-        .gallery-section {
-            padding: 0 20px; 
-            max-width: 1200px; 
-            margin: 0 auto; /* Centers the whole gallery block */
+        /* --- Menu Section Styles --- */
+        .menu-section {
+            padding: 40px 0;
+            text-align: center;
         }
 
-        .gallery-section h3 {
+        .menu-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .menu-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            text-align: left;
+        }
+
+        .menu-item h4 {
+            margin-top: 0;
+            color: var(--coffee-brown);
+            border-bottom: 2px solid var(--accent-green);
+            padding-bottom: 5px;
+        }
+
+        .price {
+            float: right;
+            font-weight: bold;
+            color: var(--accent-green);
+        }
+        
+        /* --- Contact Section Styles --- */
+        .contact-section {
+            padding: 40px 0;
+            background-color: #EDE3DA;
             text-align: center;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
+        /* --- Gallery Section Styles (3 Column) --- */
+        .gallery-section {
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .gallery-section h3 {
             margin-bottom: 30px;
-            font-size: 2em;
-            color: #4E413F; /* Coffee Brown Color */
         }
 
         .image-row {
-            /* Enables side-by-side arrangement (3 columns) */
             display: flex; 
-            /* Allows images to wrap to the next line on small screens */
             flex-wrap: wrap; 
             gap: 20px; 
-            justify-content: center; /* Centers the image row */
+            justify-content: center; 
         }
 
         .gallery-item {
-            /* Each image takes roughly 30% of the row space */
             flex: 1 1 calc(30% - 20px); 
             min-width: 250px; 
             max-width: 350px; 
             overflow: hidden;
-            border-radius: 8px; /* Rounded corners for a modern look */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow */
-            background-color: white;
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
         }
 
         .gallery-img {
             width: 100%;
-            /* Fixed height for uniform gallery appearance */
             height: 300px; 
             object-fit: cover;
             transition: transform 0.3s ease;
         }
 
-        /* Hover effect: Makes the image slightly zoom in when the mouse is over it */
         .gallery-img:hover {
             transform: scale(1.05); 
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--coffee-brown);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+
+        /* --- Responsive Design (Small Screens) --- */
+        @media (max-width: 768px) {
+            .navbar-content {
+                flex-direction: column;
+            }
+            .nav-links a {
+                margin: 0 10px;
+            }
+            .hero-section {
+                height: 40vh;
+            }
         }
     </style>
     </head>
 <body>
 
-    <section class="hero-section">
-        <img src="image/BREWSQUARED PHOTOS.jpg" alt="Baristas making coffee, high energy" class="hero-image">
-    </section>
+    <header>
+        <nav class="navbar">
+            <div class="container navbar-content">
+                <a class="logo" href="#home">Brew Squared</a>
+                <div class="nav-links">
+                    <a href="#menu">Menu</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#" class="order-btn" target="_blank">Order Now</a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <section class="gallery-section">
-        <h3>Our Signature Vibe</h3>
-        
-        <div class="image-row">
-            <div class="gallery-item">
-                <img src="image/S_3481695.jpg" alt="Interior Seating Area" class="gallery-img">
-            </div>
-            
-            <div class="gallery-item">
-                <img src="image/S_3481697.jpg" alt="Close-up of fresh coffee beans" class="gallery-img">
-            </div>
-            
-            <div class="gallery-item">
-                <img src="image/S_3481698.jpg" alt="Delicious pastries and coffee cups" class="gallery-img">
-            </div>
-        </div>
-    </section>
+    <main>
+        <section id="home" class="hero-section">
+            <img src="image/BREWSQUARED PHOTOS.jpg" alt="Baristas making coffee, high energy" class="hero-image">
+        </section>
 
-    </body>
+        <section id="menu" class="menu-section container">
+            <h2>Our Coffee & Delights</h2>
+            
+            <div class="menu-grid">
+                
+                <div class="menu-item">
+                    <h4>Espresso <span class="price">$3.00</span></h4>
+                    <p>A strong shot of our signature blend, expertly pulled.</p>
+                </div>
+                
+                <div class="menu-item">
+                    <h4>Classic Latte <span class="price">$5.50</span></h4>
+                    <p>Rich espresso with steamed milk and a light layer of foam.</p>
+                </div>
+                
+                <div class="menu-item">
+                    <h4>Signature Cold Brew <span class="price">$6.00</span></h4>
+                    <p>Steeped for 16 hours for a smooth, low-acid finish.</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4>Almond Croissant <span class="price">$4.50</span></h4>
+                    <p>Flaky, buttery croissant filled with almond paste.</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4>Matcha Green Tea <span class="price">$5.00</span></h4>
+                    <p>Organic matcha with your choice of milk.</p>
+                </div>
+
+                <div class="menu-item">
+                    <h4>Avocado Toast <span class="price">$8.00</span></h4>
+                    <p>Smashed avocado on sourdough with chili flakes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section container">
+            <h3>Our Signature Vibe</h3>
+            
+            <div class="image-row">
+                <div class="gallery-item">
+                    <img src="image/S_3481695.jpg" alt="Interior Seating Area" class="gallery-img">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="image/S_3481697.jpg" alt="Close-up of fresh coffee beans" class="gallery-img">
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="image/S_3481698.jpg" alt="Delicious pastries and coffee cups" class="gallery-img">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container contact-info">
+                <h2>Find & Connect With Us</h2>
+                <p>📍 **Location:** 123 Coffee Lane, Downtown City</p>
+                <p>📞 **Phone:** (555) 123-4567</p>
+                <p>📧 **Email:** hello@brewsquared.com</p>
+                <p>🕒 **Hours:** Mon - Sat: 7:00 AM - 6:00 PM | Sun: 8:00 AM - 5:00 PM</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        &copy; 2025 Brew Squared. All rights reserved.
+    </footer>
+
+</body>
 </html>
