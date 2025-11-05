@@ -3,6 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Full Cover Example</title>
+    
+    <style>
+        body {
+            margin: 0; /* Remove default browser margins */
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container for the image (where the image will be displayed) */
+        .hero-container {
+            width: 100%;
+            /* Define the height of the image area. 50vh = 50% of the viewport height. */
+            height: 50vh; 
+            overflow: hidden; /* Hide any part of the image that extends beyond the container */
+            background-color: #f0f0f0; 
+        }
+
+        /* The Image (img) element itself */
+        .hero-image {
+            width: 100%;       /* Image width covers 100% of the container width */
+            height: 100%;      /* Image height covers 100% of the container height */
+            
+            /* **Crucial property** - Scales the image to cover the entire container 
+               without distorting its aspect ratio. It may crop the edges of the image. */
+            object-fit: cover; 
+        }
+
+        /* Basic styling for header and titles */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            padding-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BREW SQUARED</h1>
+    </header>
+
+    <section class="hero-container">
+        <img 
+            src="image/Elegant cafe interior with baristas.jpg" 
+            alt="Elegant cafe interior with baristas" 
+            class="hero-image"
+        >
+    </section>
+
+    <h2>TODAY SPECIAL MENU</h2>
+    
+    </body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brew Squared | European Cafe</title>
     
     <style>
