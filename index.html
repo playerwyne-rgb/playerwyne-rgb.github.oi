@@ -2,318 +2,68 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Full Cover Example</title>
-    
+    <title>BREW SQUARED</title>
     <style>
+        /* အပေါ်အောက် ခွာနေတဲ့ browser margin ကို ဖယ်ရှားခြင်း */
         body {
-            margin: 0; /* Remove default browser margins */
-            font-family: Arial, sans-serif;
-        }
-
-        /* Container for the image (where the image will be displayed) */
-        .hero-container {
-            width: 100%;
-            /* Define the height of the image area. 50vh = 50% of the viewport height. */
-            height: 50vh; 
-            overflow: hidden; /* Hide any part of the image that extends beyond the container */
-            background-color: #f0f0f0; 
-        }
-
-        /* The Image (img) element itself */
-        .hero-image {
-            width: 100%;       /* Image width covers 100% of the container width */
-            height: 100%;      /* Image height covers 100% of the container height */
-            
-            /* **Crucial property** - Scales the image to cover the entire container 
-               without distorting its aspect ratio. It may crop the edges of the image. */
-            object-fit: cover; 
-        }
-
-        /* Basic styling for header and titles */
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        h1 {
             margin: 0;
-            padding: 10px;
         }
 
-        h2 {
-            text-align: center;
-            padding-top: 40px;
+        /* ပုံကို ထည့်သွင်းထားသော section ကို နေရာယူစေရန် */
+        #home {
+            width: 100%;
+            /* မျက်နှာပြင်အမြင့် (Viewport Height) ရဲ့ 60% ကို နေရာယူရန် သတ်မှတ်ခြင်း */
+            /* ဒီတန်ဖိုး (60vh) ကို လိုအပ်သလို ပြောင်းလဲနိုင်ပါတယ် */
+            height: 60vh; 
+            overflow: hidden; /* Container အပြင်ထွက်သော ပုံကို ဖျောက်ရန် */
+        }
+
+        /* ပုံ (img) ကို အချိုးမပျက်ဘဲ နေရာအပြည့်ပေါ်စေရန် */
+        .hero-image {
+            width: 100%;    /* အကျယ်အဝန်းကို Container အပြည့်ယူပါ */
+            height: 100%;   /* အမြင့်ကို Container အပြည့်ယူပါ */
+            
+            /* **အချိုးမပျက်ဘဲ ပုံအပြည့်အစုံ ပေါ်စေရန် (နေရာလွတ်ကျန်နိုင်သည်)** */
+            object-fit: contain; 
+        }
+
+        /* မူလ code ရှိ Header အတွက် အခြေခံ ချိန်ညှိမှုများ (လိုအပ်ပါက) */
+        header {
+            /* သင်၏ မူလ header style များ ဤနေရာတွင် ရှိနေနိုင်သည် */
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>BREW SQUARED</h1>
-    </header>
-
-    <section class="hero-container">
-        <img 
-            src="image/Elegant cafe interior with baristas.jpg" 
-            alt="Elegant cafe interior with baristas" 
-            class="hero-image"
-        >
-    </section>
-
-    <h2>TODAY SPECIAL MENU</h2>
-    
-    </body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brew Squared | European Cafe</title>
-    
-    <style>
-        /* --- 1. Color Variables & General Styles (European Theme) --- */
-        :root {
-            --primary-dark: #2C2C2C; /* Deep Charcoal Black */
-            --secondary-cream: #F5F5F5; /* Off-White/Creamy Background */
-            --accent-gold: #B8860B; /* Gold/Brass Accent */
-            --text-color: #333;
-        }
-
-        body {
-            font-family: 'Times New Roman', Times, serif; 
-            margin: 0;
-            padding: 0;
-            background-color: var(--secondary-cream);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 25px;
-        }
-
-        h2 {
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            font-size: 2.8em;
-            color: var(--primary-dark);
-            letter-spacing: 1px;
-            text-align: center;
-        }
-
-        /* --- 2. Navigation Bar (Top Bar) --- */
-        .navbar {
-            background-color: var(--primary-dark);
-            padding: 20px 0;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .navbar-content {
-            display: flex;
-            justify-content: space-between; 
-            align-items: center;
-        }
-        
-        /* 1. Logo Section: ဘယ်ဘက်အပေါ်ဒေါင့် */
-        .logo {
-            color: white;
-            font-size: 1.8em;
-            font-weight: 700;
-            text-decoration: none;
-            letter-spacing: 2px;
-            transition: color 0.3s;
-        }
-
-        /* 2. Menu Links Section: ညာဘက်အပေါ်ဒေါင့် */
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 35px;
-            font-size: 1em;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-gold);
-        }
-        
-        .order-btn {
-            background-color: var(--accent-gold);
-            color: var(--primary-dark);
-            padding: 8px 18px;
-            border-radius: 3px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        /* --- 3. Hero Section (Image Placeholder) --- */
-        .hero-section {
-            width: 100%;
-            height: 50vh; 
-            background-color: #DDD; /* ပုံမရှိချိန်မှာ မြင်နေရမယ့် Gray Color */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 70px;
-        }
-        
-        .hero-section img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .hero-text {
-            color: var(--primary-dark);
-            font-size: 2em;
-            font-weight: bold;
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.7);
-        }
-
-        /* --- 4. Menu Section (Elegant Grid Layout) --- */
-        .menu-section {
-            padding: 50px 0;
-        }
-        
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .menu-item {
-            border: 1px solid #CCC;
-            padding: 30px;
-            background-color: white;
-            text-align: left;
-            transition: border-color 0.3s;
-        }
-
-        .menu-item h4 {
-            margin: 0 0 10px 0;
-            color: var(--primary-dark);
-            font-size: 1.5em;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .price {
-            font-weight: 500;
-            color: var(--accent-gold);
-        }
-        
-        /* --- 5. Contact Section --- */
-        .contact-section {
-            padding: 80px 0;
-            background-color: var(--primary-dark); 
-            color: white;
-            text-align: center;
-            margin-top: 80px;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: #1A1A1A;
-            color: #AAA;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            .navbar-content {
-                flex-direction: column;
-            }
-            .nav-links {
-                margin-top: 15px;
-            }
-            .hero-section {
-                height: 35vh;
-            }
-        }
-    </style>
-    </head>
-<body>
-
-    <header>
         <nav class="navbar">
             <div class="container navbar-content">
                 <a class="logo" href="#home">BREW SQUARED</a>
-                
                 <div class="nav-links">
                     <a href="#menu">MENU</a>
                     <a href="#contact">VISIT</a>
-                    <a href="#" class="order-btn" target="_blank">ORDER</a>
+                    <a href="#order-btn" target="_blank">ORDER</a>
                 </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <section id="home" class="hero-section">
-   <img src="image/Elegant cafe interior with baristas.jpg" alt="Elegant cafe interior with baristas" class="hero-image">
-
-</section>
+        <section id="home">
+            <img src="image/Elegant cafe interior with baristas.jpg" 
+                 alt="elegant cafe interior with baristas" 
+                 class="hero-image">
+        </section>
 
         <section id="menu" class="menu-section container">
-            <h2>TODAY SPECIAL MENU </h2>
-            
+            <h2>TODAY SPECIAL MENU</h2>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <h4>The Classic Espresso <span class="price">€3.50</span></h4>
+                    <h3>The Classic Espresso <span class="price">€3.50</span></h3>
                     <p>A double shot of our meticulously sourced house blend.</p>
                 </div>
-                
-                <div class="menu-item">
-                    <h4>Velvet Latte <span class="price">€6.00</span></h4>
-                    <p>Espresso with perfectly steamed organic milk, served in fine porcelain.</p>
                 </div>
-                
-                <div class="menu-item">
-                    <h4>Single Origin Filter <span class="price">€7.50</span></h4>
-                    <p>Hand-poured V60/Chemex showcasing rare, seasonal beans.</p>
-                </div>
-                
-                <div class="menu-item">
-                    <h4>Patisserie Croissant <span class="price">€4.80</span></h4>
-                    <p>Flaky French croissant, imported butter only.</p>
-                </div>
-                
-                <div class="menu-item">
-                    <h4>Artisan Herbal Tea <span class="price">€4.00</span></h4>
-                    <p>Exclusive loose leaf teas, carefully brewed.</p>
-                </div>
-                
-                <div class="menu-item">
-                    <h4>Signature Iced Coffee <span class="price">€6.50</span></h4>
-                    <p>Our famous chilled brew, subtly sweetened.</p>
-                </div>
-            </div>
         </section>
-
-        <section id="contact" class="contact-section">
-            <div class="container contact-info">
-                <h2>Visit Us</h2>
-                <p>📍 Location: Ground floor 69/66 Phaya Thai Rd, Thanon Phaya Thai, Ratchathewi, Bangkok 10400</p>
-                <p>📞 Reservation:  | 📧 Email: contact@brewsquared.com</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            &copy; 2025 Brew Squared. All Rights Reserved.
-        </div>
-    </footer>
-
+        
+        </main>
 </body>
 </html>
