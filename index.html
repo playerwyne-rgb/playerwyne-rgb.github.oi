@@ -11,9 +11,10 @@
 
     <style>
         :root {
-            --primary-color: #000000;
-            /* Soft Creamy Yellow background color */
-            --secondary-color: #FFFDE7; 
+            /* CHANGED: Primary text color to white for visibility on red background */
+            --primary-color: #FFFFFF;
+            /* CHANGED: Bright Red background color */
+            --secondary-color: #FF0000; 
             --light-grey: #f5f5f5;
             --cta-color: #4CAF50;
         }
@@ -33,7 +34,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 50px;
-            border-bottom: 1px solid var(--light-grey);
+            /* Border and background updated to secondary color */
+            border-bottom: 1px solid var(--primary-color); 
             background-color: var(--secondary-color);
             position: sticky;
             top: 0;
@@ -62,7 +64,7 @@
         }
 
         .nav-links a:hover {
-            color: #555;
+            color: var(--light-grey); /* Lighter hover color */
         }
 
         /* --- Hero Section (Home) --- */
@@ -84,7 +86,8 @@
         .hero-image {
             width: 100%; 
             height: auto;
-            border: 2px solid var(--primary-color);
+            /* Border updated to secondary color */
+            border: 2px solid var(--secondary-color); 
             max-width: 100%; 
             display: block; 
         }
@@ -102,7 +105,8 @@
             text-align: center;
             font-size: 30px;
             margin-bottom: 40px;
-            border-bottom: 3px double var(--primary-color);
+            /* Separator updated to primary color (white) */
+            border-bottom: 3px double var(--primary-color); 
             padding-bottom: 10px;
             text-transform: uppercase;
         }
@@ -115,14 +119,15 @@
             padding: 8px 0;
             font-size: 16px;
             line-height: 1.4;
-            border-bottom: 1px dotted var(--light-grey);
+            /* Dotted line updated to primary color (white) */
+            border-bottom: 1px dotted var(--primary-color);
         }
         
         .menu-item .header {
             font-weight: 700;
-            color: #555;
+            color: var(--light-grey); /* Keeping headers visible */
             padding-bottom: 10px;
-            border-bottom: 2px solid #ddd;
+            border-bottom: 2px solid var(--primary-color);
         }
 
         /* --- Rental Space Styles --- */
@@ -134,26 +139,14 @@
         }
 
         .room-card {
+            /* Borders and shadows use primary/secondary colors */
             border: 1px solid var(--primary-color);
             padding: 15px;
             text-align: center;
             background-color: var(--secondary-color);
             box-shadow: 4px 4px 0px var(--primary-color);
         }
-
-        .room-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 1px solid var(--light-grey);
-        }
         
-        .room-card h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
         .room-card .price {
             font-size: 18px;
             font-weight: 700;
@@ -161,21 +154,15 @@
             margin-bottom: 15px;
         }
 
-        .room-card ul {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            margin-bottom: 15px;
-        }
-
         .room-card ul li {
-            border-bottom: 1px dotted var(--light-grey);
+            border-bottom: 1px dotted var(--primary-color); /* Updated for visibility */
             padding: 5px 0;
             font-size: 15px;
         }
         
         .rent-cta {
-            background-color: var(--primary-color);
+            /* Inverted CTAs for better contrast on red */
+            background-color: var(--primary-color); 
             color: var(--secondary-color);
             padding: 10px 20px;
             text-decoration: none;
@@ -186,6 +173,7 @@
         }
 
         .rent-cta:hover {
+            /* Hover reverts to secondary background (red) with primary text (white) */
             background-color: var(--secondary-color);
             color: var(--primary-color);
         }
@@ -196,8 +184,10 @@
             padding: 40px 50px;
             max-width: 1000px;
             margin: 40px auto;
+            /* Borders updated to primary color (white) */
             border: 2px solid var(--primary-color);
             background-color: var(--light-grey);
+            color: #000; /* Ensure text inside light-grey box is black */
         }
 
         .contact-social-section h2 {
@@ -205,13 +195,15 @@
             text-transform: uppercase;
             font-size: 24px;
             margin-bottom: 20px;
+            color: #000;
         }
 
         /* Message Button Styling */
         .message-button {
+            /* Button adjusted for contrast: White text on black background */
             display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
+            background-color: #000000;
+            color: var(--primary-color);
             padding: 15px 30px;
             text-decoration: none;
             font-size: 18px;
@@ -229,7 +221,7 @@
         .social-links a {
             font-size: 30px;
             margin: 0 15px;
-            color: var(--primary-color);
+            color: #000; /* Social icons set to black inside the light-grey box */
             transition: color 0.3s, transform 0.3s;
         }
 
@@ -240,14 +232,20 @@
         
         /* --- Footer & Contact --- */
         .footer {
-            background-color: var(--primary-color);
-            color: var(--secondary-color);
+            /* CHANGED: Footer color to white for better contrast and legibility */
+            background-color: #FFFFFF; 
+            /* Text color in the footer is black (or primary color when primary is black, but we set explicit black here) */
+            color: #000000; 
             padding: 30px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 14px;
             margin-top: 40px;
+        }
+        
+        .footer p {
+            color: #000000; /* Ensure text is black */
         }
         
         /* --- Floating Phone Button --- */
@@ -292,6 +290,7 @@
                 flex-direction: column;
                 padding: 20px;
                 text-align: center;
+                color: #000000;
             }
             .contact-info p {
                 margin-bottom: 10px;
