@@ -125,7 +125,7 @@
             border-bottom: 2px solid #ddd;
         }
 
-        /* --- Rental Space Styles (simplified for brevity) --- */
+        /* --- Rental Space Styles --- */
         .rent-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -141,6 +141,39 @@
             box-shadow: 4px 4px 0px var(--primary-color);
         }
 
+        .room-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 1px solid var(--light-grey);
+        }
+        
+        .room-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .room-card .price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .room-card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .room-card ul li {
+            border-bottom: 1px dotted var(--light-grey);
+            padding: 5px 0;
+            font-size: 15px;
+        }
+        
         .rent-cta {
             background-color: var(--primary-color);
             color: var(--secondary-color);
@@ -157,7 +190,7 @@
             color: var(--primary-color);
         }
         
-        /* --- Contact & Social Section STYLES --- */
+        /* --- Contact & Social Section STYLES (simplified for brevity) --- */
         .contact-social-section {
             text-align: center;
             padding: 40px 50px;
@@ -260,7 +293,8 @@
             <div class="nav-links">
                 <a href="#menu">MENU</a>
                 <a href="#rent-space">RENT</a>
-                <a href="#contact-social">CONTACT</a> <a href="tel:+959123456789">ORDER</a> 
+                <a href="#contact-social">CONTACT</a>
+                <a href="tel:+959123456789">ORDER</a> 
             </div>
         </nav>
     </header>
@@ -281,16 +315,7 @@
         <section id="menu" class="menu-section">
             <h2>OUR MENU ☕</h2>
             <p class="menu-special-note">Prices are in the hundreds of Bahts (B).</p>
-            <div class="menu-category">
-                <h3>Coffee Classics</h3>
-                <div class="menu-item header">
-                    <span class="name">Item (double up!)</span>
-                    <span class="hot-price">Hot</span>
-                    <span class="cold-price">Cold</span>
-                </div>
-                <div class="menu-item"><span class="name">Espresso</span><span class="hot-price">40.0 B</span><span class="cold-price"> - </span></div>
-                <div class="menu-item"><span class="name">Americano</span><span class="hot-price">45.0 B</span><span class="cold-price">50.0 B</span></div>
-                </div>
+
             </section>
 
         ---
@@ -303,34 +328,65 @@
                 
                 <div class="room-card">
                     <img 
-                        src="https://via.placeholder.com/350x200/ddd/333?text=MEETING+ROOM" 
-                        alt="Private Meeting Room"
+                        src="https://via.placeholder.com/350x200/ddd/333?text=SMALL+ROOM+FOCUS" 
+                        alt="Private Small Room"
                     >
-                    <h3>The Focus Room</h3>
+                    <h3>1. Small Room (The Focus Room)</h3>
                     <p class="price">400 B / Hour</p>
                     <ul>
-                        <li>✨ Capacity: 6 people</li>
+                        <li>✨ **Capacity: 6 people**</li>
                         <li>💻 Projector Screen & Wi-Fi</li>
                         <li>🤫 Sound Insulated</li>
                         <li>☕ Free Coffee (2 refills/person)</li>
                     </ul>
                     <a href="tel:+660619523976" class="rent-cta">Book Now</a>
                 </div>
+
+                <div class="room-card">
+                    <img 
+                        src="https://via.placeholder.com/350x200/ddd/333?text=LARGE+ROOM+CREATIVE" 
+                        alt="Open Workshop Space"
+                    >
+                    <h3>2. Large Room (The Creative Corner)</h3>
+                    <p class="price">1500 B / Half Day</p>
+                    <ul>
+                        <li>✨ **Capacity: 15 people** (standing)</li>
+                        <li>🎨 Movable Furniture</li>
+                        <li>💡 Natural Light Access</li>
+                        <li>🔌 Multiple Power Outlets</li>
+                    </ul>
+                    <a href="tel:+660619523976" class="rent-cta">Book Now</a>
                 </div>
+
+                <div class="room-card">
+                    <img 
+                        src="https://via.placeholder.com/350x200/ddd/333?text=LARGE+MEETING+ROOM+EVENT" 
+                        alt="Large Event Space"
+                    >
+                    <h3>3. Large Meeting Room (The Brew Hall)</h3>
+                    <p class="price">3000 B / Evening</p>
+                    <ul>
+                        <li>✨ **Capacity: 30 people**</li>
+                        <li>🔊 Integrated Sound System</li>
+                        <li>🍽️ Catering Option Available</li>
+                        <li>🥂 Exclusive Cafe Access (After Hours)</li>
+                    </ul>
+                    <a href="tel:+660619523976" class="rent-cta">Book Now</a>
+                </div>
+
+            </div>
             <p style="text-align: center; margin-top: 40px; font-size: 0.9rem;">*Daily rates and extended rental discounts available upon request. Contact us for details.</p>
         </section>
+
 
         ---
         
         <section id="contact-social" class="contact-social-section">
             <h2>GET IN TOUCH</h2>
-
             <a href="mailto:hello@brewsquared.com" class="message-button">
                 SEND US A MESSAGE 📧
             </a>
-
             <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 20px;">CONNECT SOCIALLY</p>
-            
             <div class="social-links">
                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
