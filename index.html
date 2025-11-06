@@ -149,25 +149,55 @@
             font-size: 14px;
         }
         
-        /* --- Floating Phone Button --- */
+        /* --- Floating Phone Button (UPDATED) --- */
         .phone-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
             background-color: #4CAF50; /* Green for call to action */
             color: white;
-            padding: 12px 20px;
-            border-radius: 50px;
+            
+            /* CIRCULAR STYLES */
+            width: 60px; /* Fixed width */
+            height: 60px; /* Fixed height */
+            border-radius: 50%; /* Make it a circle */
+            padding: 0; /* Reset padding */
+            display: flex;
+            justify-content: center; /* Center icon horizontally */
+            align-items: center; /* Center icon vertically */
+            font-size: 28px; /* Larger icon size */
+            
             text-decoration: none;
-            font-size: 16px;
             font-weight: 700;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
             z-index: 1000;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
         
         .phone-button:hover {
             background-color: #45a049;
+            transform: scale(1.1); /* Subtle hover effect */
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+            .nav-links {
+                display: none; /* Hide for true minimalist mobile design */
+            }
+            .menu-section {
+                padding: 60px 20px;
+            }
+            .footer {
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+            }
+            .contact-info p {
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -263,7 +293,7 @@
                     <span class="hot-price"> - </span>
                     <span class="cold-price">85.0 B</span>
                 </div>
-                 <div class="menu-item">
+                   <div class="menu-item">
                     <span class="name">Mango + Pour Over</span>
                     <span class="hot-price"> - </span>
                     <span class="cold-price">85.0 B</span>
@@ -302,7 +332,7 @@
                     <span class="hot-price"> - </span>
                     <span class="cold-price">45.0 B</span>
                 </div>
-                 <div class="menu-item">
+                   <div class="menu-item">
                     <span class="name">Passion Fruit</span>
                     <span class="hot-price"> - </span>
                     <span class="cold-price">45.0 B</span>
@@ -331,12 +361,12 @@
                     <span class="hot-price"> - </span>
                     <span class="cold-price">60.0 B / 70.0 B</span>
                 </div>
-                 <div class="menu-item">
+                   <div class="menu-item">
                     <span class="name">Blueberry</span>
                     <span class="hot-price"> - </span>
                     <span class="cold-price">60.0 B / 70.0 B</span>
                 </div>
-                 <div class="menu-item">
+                   <div class="menu-item">
                     <span class="name">Strawberry</span>
                     <span class="hot-price"> - </span>
                     <span class="cold-price">60.0 B / 70.0 B</span>
@@ -394,7 +424,7 @@
                     <span class="hot-price">50.0 B</span>
                     <span class="cold-price"> - </span>
                 </div>
-                 <div class="menu-item">
+                   <div class="menu-item">
                     <span class="name">Dong Ding Oolong Tea</span>
                     <span class="hot-price">40.0 B</span>
                     <span class="cold-price"> - </span>
@@ -429,8 +459,8 @@
         </div>
     </footer>
 
-    <a href="tel:+660619523976" class="phone-button">
-        📞 Call Us: 061 952 3976
+    <a href="tel:+660619523976" class="phone-button" aria-label="Call Now: 061 952 3976">
+        📞
     </a>
 </body>
 </html>
