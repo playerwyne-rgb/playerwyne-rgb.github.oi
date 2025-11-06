@@ -10,7 +10,8 @@
     <style>
         :root {
             --primary-color: #000000;
-            --secondary-color: #ffffff;
+            /* CHANGED: Soft Creamy Yellow background color */
+            --secondary-color: #FFFDE7; 
             --light-grey: #f5f5f5;
             --cta-color: #4CAF50;
         }
@@ -31,6 +32,7 @@
             align-items: center;
             padding: 15px 50px;
             border-bottom: 1px solid var(--light-grey);
+            /* Ensure navbar background stays with the theme */
             background-color: var(--secondary-color);
             position: sticky;
             top: 0;
@@ -66,6 +68,7 @@
         .hero-section {
             text-align: center;
             padding: 0;
+            /* Used light-grey for the inset area around the image */
             background-color: var(--light-grey);
         }
 
@@ -134,6 +137,7 @@
             border: 1px solid var(--primary-color);
             padding: 15px;
             text-align: center;
+            /* Room card background uses the secondary color */
             background-color: var(--secondary-color);
             box-shadow: 4px 4px 0px var(--primary-color);
         }
@@ -183,6 +187,7 @@
         }
 
         .rent-cta:hover {
+            /* Hover effect maintains the primary text color */
             background-color: var(--secondary-color);
             color: var(--primary-color);
         }
