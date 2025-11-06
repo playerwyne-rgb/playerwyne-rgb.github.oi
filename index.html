@@ -16,7 +16,7 @@
         }
 
         body {
-            /* 2. UPDATED FONT-FAMILY TO PLAYFAIR DISPLAY */
+            /* Main site font (Elegant/Sexy Serif) */
             font-family: 'Playfair Display', serif;
             margin: 0;
             padding: 0;
@@ -38,13 +38,13 @@
         }
 
         .logo {
-            /* 3. UPDATED LOGO FONT TO GREAT VIBES (Sexy Script Style) */
+            /* Logo font (Flowing Script) */
             font-family: 'Great Vibes', cursive;
-            font-size: 36px; /* Increased size for script font legibility */
-            font-weight: 400; /* Script fonts usually look best without heavy bolding */
+            font-size: 36px;
+            font-weight: 400;
             color: var(--primary-color);
             text-decoration: none;
-            text-transform: none; /* Removed uppercase for script font */
+            text-transform: none;
         }
 
         .nav-links a {
@@ -54,6 +54,8 @@
             color: var(--primary-color);
             text-decoration: none;
             transition: color 0.3s;
+            /* Use Poppins for navigation links for better readability */
+            font-family: 'Poppins', sans-serif; 
         }
 
         .nav-links a:hover {
@@ -67,7 +69,6 @@
             background-color: var(--light-grey);
         }
 
-        /* Container to center content and define the grey area */
         .hero-image-container {
             max-width: 1000px;
             width: 100%;
@@ -78,7 +79,6 @@
         }
         
         .hero-image {
-            /* Image takes up the full width of its container */
             width: 100%; 
             height: auto;
             border: 2px solid var(--primary-color);
@@ -86,7 +86,7 @@
             display: block; 
         }
 
-        /* --- Menu Section --- */
+        /* --- Menu Section & Headings --- */
         .menu-section, .rent-section {
             padding: 60px 50px;
             max-width: 1000px;
@@ -94,11 +94,14 @@
         }
 
         .menu-section h2, .rent-section h2 {
+            /* Changed H2 font to a clean Sans-Serif (Poppins) */
+            font-family: 'Poppins', sans-serif; 
             text-align: center;
             font-size: 30px;
             margin-bottom: 40px;
             border-bottom: 3px double var(--primary-color);
             padding-bottom: 10px;
+            text-transform: uppercase;
         }
         
         /* Menu Grid Styles */
@@ -274,7 +277,7 @@
         ---
 
         <section id="menu" class="menu-section">
-            <h2>OUR MENU</h2>
+            <h2>OUR MENU 🍰</h2>
             <p class="menu-special-note">Prices are in the hundreds of Bahts (B).</p>
 
             <div class="menu-category">
