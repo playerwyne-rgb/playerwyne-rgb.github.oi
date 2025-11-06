@@ -60,21 +60,28 @@
         /* --- Hero Section (Home) --- */
         .hero-section {
             text-align: center;
-            /* Updated padding: removed extra bottom space for the deleted H2 */
-            padding: 80px 0; 
+            padding: 0; /* Remove vertical padding from the section itself */
             background-color: var(--light-grey);
         }
 
+        /* New container to center content and define the grey area */
+        .hero-image-container {
+            max-width: 1000px; /* Max width of the content area */
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 50px; /* Padding inside the grey background */
+            background-color: var(--light-grey);
+            box-sizing: border-box;
+        }
+        
         .hero-image {
-            max-width: 600px;
-            width: 90%;
+            /* KEY FIX: Image takes up the full width of its container (hero-image-container) */
+            width: 100%; 
             height: auto;
             border: 2px solid var(--primary-color);
-            /* Reduced margin since H2 is gone */
-            margin-bottom: 0; 
+            max-width: 100%; 
+            display: block; 
         }
-
-        /* Removed .hero-section h2 styling as the element is deleted */
 
         /* --- Menu Section --- */
         .menu-section, .rent-section {
@@ -91,7 +98,7 @@
             padding-bottom: 10px;
         }
         
-        /* Menu Grid Styles (kept for consistency) */
+        /* Menu Grid Styles */
         .menu-item {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
@@ -252,12 +259,16 @@
 
     <main>
         <section id="home" class="hero-section">
-            <img 
-                src="https://via.placeholder.com/600x400/f5f5f5/000000?text=CAFE+INTERIOR" 
-                alt="Coffee Shop Interior" 
-                class="hero-image"
-            >
-            </section>
+            <div class="hero-image-container">
+                <img 
+                    src="https://via.placeholder.com/600x400/f5f5f5/000000?text=CAFE+INTERIOR" 
+                    alt="Coffee Shop Interior" 
+                    class="hero-image"
+                >
+            </div>
+        </section>
+
+        ---
 
         <section id="menu" class="menu-section">
             <h2>OUR MENU</h2>
