@@ -107,7 +107,7 @@
             text-transform: uppercase;
         }
         
-        /* Menu Grid Styles (simplified for brevity) */
+        /* Menu Grid Styles */
         .menu-item {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
@@ -190,7 +190,7 @@
             color: var(--primary-color);
         }
         
-        /* --- Contact & Social Section STYLES (simplified for brevity) --- */
+        /* --- Contact & Social Section STYLES --- */
         .contact-social-section {
             text-align: center;
             padding: 40px 50px;
@@ -238,7 +238,7 @@
             transform: scale(1.1);
         }
         
-        /* --- Footer & Contact (simplified for brevity) --- */
+        /* --- Footer & Contact --- */
         .footer {
             background-color: var(--primary-color);
             color: var(--secondary-color);
@@ -250,7 +250,7 @@
             margin-top: 40px;
         }
         
-        /* --- Floating Phone Button (simplified for brevity) --- */
+        /* --- Floating Phone Button --- */
         .phone-button {
             position: fixed;
             bottom: 20px;
@@ -277,12 +277,28 @@
             transform: scale(1.1);
         }
         
-        /* Responsive Design (simplified for brevity) */
+        /* Responsive Design */
         @media (max-width: 768px) {
             .navbar {
                 padding: 15px 20px;
             }
-            /* ... other responsive styles ... */
+            .nav-links {
+                display: none;
+            }
+            .menu-section, .rent-section {
+                padding: 60px 20px;
+            }
+            .footer {
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+            }
+            .contact-info p {
+                margin-bottom: 10px;
+            }
+            .room-card {
+                box-shadow: 2px 2px 0px var(--primary-color);
+            }
         }
     </style>
 </head>
@@ -316,7 +332,94 @@
             <h2>OUR MENU ☕</h2>
             <p class="menu-special-note">Prices are in the hundreds of Bahts (B).</p>
 
-            </section>
+            <div class="menu-category">
+                <h3>Coffee Classics</h3>
+                <div class="menu-item header">
+                    <span class="name">Item (double up!)</span>
+                    <span class="hot-price">Hot</span>
+                    <span class="cold-price">Cold</span>
+                </div>
+                <div class="menu-item"><span class="name">Espresso</span><span class="hot-price">40.0 B</span><span class="cold-price"> - </span></div>
+                <div class="menu-item"><span class="name">Americano</span><span class="hot-price">45.0 B</span><span class="cold-price">50.0 B</span></div>
+                <div class="menu-item"><span class="name">Latte</span><span class="hot-price">45.0 B</span><span class="cold-price">50.0 B</span></div>
+                <div class="menu-item"><span class="name">Cappuccino</span><span class="hot-price">45.0 B</span><span class="cold-price">50.0 B</span></div>
+                <div class="menu-item"><span class="name">Flat White</span><span class="hot-price">45.0 B</span><span class="cold-price"> - </span></div>
+                <div class="menu-item"><span class="name">Mocha</span><span class="hot-price">45.0 B</span><span class="cold-price">50.0 B</span></div>
+                <div class="menu-item"><span class="name">Yuzu Black</span><span class="hot-price"> - </span><span class="cold-price">50.0 B</span></div>
+                <div class="menu-item"><span class="name">Caramel Macchiato</span><span class="hot-price"></span><span class="cold-price">55.0 B</span></div>
+                <div class="menu-item"><span class="name">Pour Over</span><span class="hot-price">55.0 B Ks</span><span class="cold-price">60.0 B</span></div>
+            </div>
+            
+            <div class="menu-category">
+                <h3>Brew² Signature</h3>
+                <div class="menu-item header">
+                    <span class="name">Item</span>
+                    <span class="hot-price">Hot</span>
+                    <span class="cold-price">Cold</span>
+                </div>
+                <div class="menu-item"><span class="name">Apple + Pour Over</span><span class="hot-price"> - </span><span class="cold-price">85.0 B</span></div>
+                <div class="menu-item"><span class="name">Mango + Pour Over</span><span class="hot-price"> - </span><span class="cold-price">85.0 B</span></div>
+                <div class="menu-item"><span class="name">Orange + Pour Over</span><span class="hot-price"> - </span><span class="cold-price">85.0 B</span></div>
+                <div class="menu-item"><span class="name">Passion + Pour Over</span><span class="hot-price"> - </span><span class="cold-price">85.0 B</span></div>
+            </div>
+
+            <div class="menu-category">
+                <h3>Fruit Tea</h3>
+                <div class="menu-item header">
+                    <span class="name">Item</span>
+                    <span class="hot-price">Hot</span>
+                    <span class="cold-price">Cold</span>
+                </div>
+                <div class="menu-item"><span class="name">Kiwi</span><span class="hot-price"> - </span><span class="cold-price">45.0 B</span></div>
+                <div class="menu-item"><span class="name">Yuzu</span><span class="hot-price"> - </span><span class="cold-price">55.0 B</span></div>
+                <div class="menu-item"><span class="name">Lemon</span><span class="hot-price"> - </span><span class="cold-price">45.0 B</span></div>
+                <div class="menu-item"><span class="name">Passion Fruit</span><span class="hot-price"> - </span><span class="cold-price">45.0 B</span></div>
+            </div>
+
+            <div class="menu-category">
+                <h3>Smoothie / Normal Yogurt</h3>
+                <div class="menu-item header">
+                    <span class="name">Item</span>
+                    <span class="hot-price">Hot</span>
+                    <span class="cold-price">Cold</span>
+                </div>
+                <div class="menu-item"><span class="name">Kiwi</span><span class="hot-price"> - </span><span class="cold-price">60.0 B / 70.0 B</span></div>
+                <div class="menu-item"><span class="name">Lychee</span><span class="hot-price"> - </span><span class="cold-price">60.0 B / 70.0 B</span></div>
+                <div class="menu-item"><span class="name">Passion</span><span class="hot-price"> - </span><span class="cold-price">60.0 B / 70.0 B</span></div>
+                <div class="menu-item"><span class="name">Blueberry</span><span class="hot-price"> - </span><span class="cold-price">60.0 B / 70.0 B</span></div>
+                <div class="menu-item"><span class="name">Strawberry</span><span class="hot-price"> - </span><span class="cold-price">60.0 B / 70.0 B</span></div>
+            </div>
+            
+             <div class="menu-category">
+                <h3>Non-Coffee & Tea</h3>
+                <div class="menu-item header">
+                    <span class="name">Item</span>
+                    <span class="hot-price">Hot</span>
+                    <span class="cold-price">Cold</span>
+                </div>
+                <div class="menu-item"><span class="name">Matcha Latte</span><span class="hot-price">55.0 B</span><span class="cold-price">65.0 B</span></div>
+                <div class="menu-item"><span class="name">Chocolate</span><span class="hot-price">45.0 B</span><span class="cold-price">50.0 B</span></div>
+                <div class="menu-item"><span class="name">Thai Tea</span><span class="hot-price">45.0 B</span><span class="cold-price">50.0 B</span></div>
+                <div class="menu-item"><span class="name">Lat Phet Yay (Burmese Tea)</span><span class="hot-price">45.0 B</span><span class="cold-price">50.0 B</span></div>
+            </div>
+            
+            <div class="menu-category">
+                <h3>Wellness Brews & Add-ons</h3>
+                <div class="menu-item header">
+                    <span class="name">Item</span>
+                    <span class="hot-price">Hot</span>
+                    <span class="cold-price">Cold</span>
+                </div>
+                <div class="menu-item"><span class="name">Oolong Tea</span><span class="hot-price">50.0 B</span><span class="cold-price"> - </span></div>
+                <div class="menu-item"><span class="name">Drew Drop Tea</span><span class="hot-price">50.0 B</span><span class="cold-price"> - </span></div>
+                <div class="menu-item"><span class="name">Itoen Japan Green Tea</span><span class="hot-price">50.0 B</span><span class="cold-price"> - </span></div>
+                <div class="menu-item"><span class="name">Dong Ding Oolong Tea</span><span class="hot-price">40.0 B</span><span class="cold-price"> - </span></div>
+                <div class="menu-item"><span class="name">Specialty Bean Bloom +30</span><span class="hot-price"> +3.0 B</span><span class="cold-price"> +3.0 B</span></div>
+                <div class="menu-item"><span class="name">Cheese Foam Topping</span><span class="hot-price"> +10.0 B </span><span class="cold-price"> +10.0 B</span></div>
+                <div class="menu-item"><span class="name">Extra Shot</span><span class="hot-price"> +10.0 B</span><span class="cold-price"> +10.0 B</span></div>
+            </div>
+            
+        </section>
 
         ---
 
