@@ -60,7 +60,8 @@
         /* --- Hero Section (Home) --- */
         .hero-section {
             text-align: center;
-            padding: 80px 0 40px;
+            /* Updated padding: removed extra bottom space for the deleted H2 */
+            padding: 80px 0; 
             background-color: var(--light-grey);
         }
 
@@ -69,16 +70,11 @@
             width: 90%;
             height: auto;
             border: 2px solid var(--primary-color);
-            margin-bottom: 40px;
+            /* Reduced margin since H2 is gone */
+            margin-bottom: 0; 
         }
 
-        .hero-section h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        /* Removed .hero-section h2 styling as the element is deleted */
 
         /* --- Menu Section --- */
         .menu-section, .rent-section {
@@ -248,7 +244,8 @@
             <a class="logo" href="#home">BREW SQUARED</a>
             <div class="nav-links">
                 <a href="#menu">MENU</a>
-                <a href="#rent-space">RENT</a> <a href="tel:+959123456789">ORDER</a> 
+                <a href="#rent-space">RENT</a>
+                <a href="tel:+959123456789">ORDER</a> 
             </div>
         </nav>
     </header>
@@ -260,8 +257,7 @@
                 alt="Coffee Shop Interior" 
                 class="hero-image"
             >
-            <h2>THE FUEL YOUR FOCUS NEEDS</h2>
-        </section>
+            </section>
 
         <section id="menu" class="menu-section">
             <h2>OUR MENU</h2>
