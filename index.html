@@ -13,7 +13,7 @@
         :root {
             /* Primary text color (White for contrast against brown) */
             --primary-color: #FFFFFF;
-            /* CHANGED: Damp Brown background color */
+            /* Damp Brown background color */
             --secondary-color: #654321; 
             --light-grey: #f5f5f5;
             --cta-color: #4CAF50;
@@ -69,24 +69,25 @@
         /* --- Hero Section (Home) --- */
         .hero-section {
             text-align: center;
-            padding: 0;
-            background-color: var(--light-grey);
+            padding: 0; /* REMOVED padding from hero-section */
+            background-color: transparent; /* Changed to transparent to remove white */
         }
 
         .hero-image-container {
-            max-width: 1000px;
+            /* CHANGED: Removed max-width to allow full bleed */
+            max-width: 100%; 
             width: 100%;
             margin: 0 auto;
-            padding: 40px 50px;
-            background-color: var(--light-grey);
+            padding: 0; /* REMOVED padding from hero-image-container */
+            background-color: transparent; /* Changed to transparent to remove white */
             box-sizing: border-box;
         }
         
         .hero-image {
             width: 100%; 
-            height: auto;
-            /* Border uses secondary color (brown) */
-            border: 2px solid var(--secondary-color); 
+            height: 500px; /* Set a fixed height for a long photo effect */
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            border: none; /* REMOVED border from the image */
             max-width: 100%; 
             display: block; 
         }
@@ -230,7 +231,7 @@
         
         /* --- Footer & Contact --- */
         .footer {
-            /* CHANGED: Footer color to black (for contrast with dark brown body) */
+            /* Footer color to black (for contrast with dark brown body) */
             background-color: #000000; 
             color: #FFFFFF; /* Text color in footer is white */
             padding: 30px 50px;
@@ -294,6 +295,9 @@
             }
             .room-card {
                 box-shadow: 2px 2px 0px var(--primary-color);
+            }
+            .hero-image {
+                height: 300px; /* Adjust height for smaller screens */
             }
         }
     </style>
