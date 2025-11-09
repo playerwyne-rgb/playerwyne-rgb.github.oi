@@ -19,7 +19,7 @@
             --light-grey: #f5f5f5; 
             /* Green CTA remains */
             --cta-color: #4CAF50; 
-            /* Dark Red Brown accent retained for hover/contrast */
+            /* Dark Red Brown accent retained for hover/contrast (New color for social icons) */
             --dark-accent: #5C1E1B; 
         }
 
@@ -119,22 +119,20 @@
         }
 
 
-        /* --- Menu Section & Headings --- */
+        /* --- Menu Section & Headings (Framed Design) --- */
         .menu-section, .rent-section {
             padding: 60px 50px;
             max-width: 1000px;
             margin: 0 auto;
         }
         
-        /* UPDATED: Classic Framed Design for Menu */
         .menu-wrapper {
-            background-color: var(--secondary-color); /* Use main cream color */
+            background-color: var(--secondary-color); 
             padding: 40px;
-            /* Create a thick, dark outer border and a thinner inner shadow/border */
-            border: 4px solid var(--primary-color); /* Thick outer border */
+            border: 4px solid var(--primary-color); 
             box-shadow: 
-                0 0 0 10px var(--secondary-color), /* Buffer to separate borders */
-                0 0 0 14px var(--dark-accent); /* Thin inner accent border/shadow */
+                0 0 0 10px var(--secondary-color), 
+                0 0 0 14px var(--dark-accent); 
         }
         
         .menu-section h2, .rent-section h2 {
@@ -179,6 +177,13 @@
             text-align: center;
             background-color: var(--secondary-color); 
             box-shadow: 4px 4px 0px var(--primary-color); 
+        }
+
+        .room-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 15px;
         }
 
         .room-card .price {
@@ -248,16 +253,16 @@
             background-color: #555; 
         }
 
-        /* Social Icons Styling */
+        /* Social Icons Styling - Set initial color to dark accent */
         .social-links a {
             font-size: 30px;
             margin: 0 15px;
-            color: var(--primary-color); 
+            color: var(--dark-accent); /* Changed to dark red-brown */
             transition: color 0.3s, transform 0.3s;
         }
 
         .social-links a:hover {
-            color: var(--cta-color);
+            color: var(--cta-color); /* Hover remains bright green */
             transform: scale(1.1);
         }
 
@@ -315,10 +320,8 @@
             .menu-section, .rent-section {
                 padding: 60px 20px;
             }
-            /* Adjust padding on the menu wrapper for smaller screens */
             .menu-wrapper {
                 padding: 20px 10px;
-                /* Remove complex box shadow on small screens for simplicity */
                 border: 2px solid var(--primary-color); 
                 box-shadow: none; 
             }
@@ -495,7 +498,7 @@
 
                 <div class="room-card">
                     <img 
-                        src="https://via.placeholder.com/350x200/ddd/333?text=LARGE+ROOM+CREATIVE" 
+                        src="image/akk.jpg" 
                         alt="Open Workshop Space"
                     >
                     <h3>2. Large Room (The Creative Corner)</h3>
