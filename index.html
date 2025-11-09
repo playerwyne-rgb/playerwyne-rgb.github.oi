@@ -15,11 +15,11 @@
             --primary-color: #333333; 
             /* Secondary color: Warm Cream/Light Beige (Positive Vibe Background) */
             --secondary-color: #F8F0E3; 
-            /* Used for Contact Section background */
+            /* Used for soft highlights and shadows */
             --light-grey: #f5f5f5; 
             /* Green CTA remains */
             --cta-color: #4CAF50; 
-            /* Dark Red Brown accent retained for hover/contrast (New color for social icons) */
+            /* Dark Red Brown accent retained for hover/contrast */
             --dark-accent: #5C1E1B; 
         }
 
@@ -216,30 +216,37 @@
             color: var(--primary-color);
         }
 
-        /* --- Contact & Social Section STYLES --- */
+        /* --- Refined Contact & Social Section STYLES --- */
         .contact-social-section {
             text-align: center;
-            padding: 40px 50px;
-            max-width: 1000px;
+            padding: 60px 50px; /* Increased vertical padding for space */
+            max-width: 900px; /* Slightly narrower to feel tighter */
             margin: 40px auto;
-            border: 2px solid var(--primary-color); 
-            background-color: var(--light-grey); 
+            
+            /* REFINED DESIGN: Inlaid/Debossed look */
+            background-color: var(--secondary-color); /* Cream background */
+            border-top: 5px solid var(--primary-color); /* Strong top border */
+            border-bottom: 5px solid var(--primary-color); /* Strong bottom border */
+            box-shadow: 
+                inset 0 0 10px rgba(0, 0, 0, 0.1), /* Inner shadow for depth */
+                0 5px 15px rgba(0, 0, 0, 0.1); /* Soft outer shadow for lift */
+
             color: var(--primary-color); 
         }
 
         .contact-social-section h2 {
-            font-family: 'Poppins', sans-serif; 
-            text-transform: uppercase;
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: var(--primary-color); 
+            font-family: 'Playfair Display', serif; /* Use the main elegant serif font here */
+            text-transform: capitalize; /* More elegant than uppercase */
+            font-size: 40px; /* Larger heading */
+            margin-bottom: 25px;
+            color: var(--dark-accent); /* Use dark accent for a warm pop */
         }
 
-        /* Message Button Styling */
+        /* Message Button Styling - Changed to use dark-accent for a premium feel */
         .message-button {
-            background-color: var(--primary-color); 
+            background-color: var(--dark-accent); 
             color: var(--secondary-color); 
-            padding: 15px 30px;
+            padding: 18px 35px; /* Bigger button */
             text-decoration: none;
             font-size: 18px;
             font-weight: 700;
@@ -247,22 +254,24 @@
             transition: background-color 0.3s;
             font-family: 'Poppins', sans-serif;
             display: inline-block;
+            border: 2px solid var(--dark-accent);
         }
 
         .message-button:hover {
-            background-color: #555; 
+            background-color: var(--secondary-color); /* Revert background on hover */
+            color: var(--dark-accent); /* Revert text color on hover */
         }
 
-        /* Social Icons Styling - Set initial color to dark accent */
+        /* Social Icons Styling */
         .social-links a {
             font-size: 30px;
             margin: 0 15px;
-            color: var(--dark-accent); /* Changed to dark red-brown */
+            color: var(--dark-accent); 
             transition: color 0.3s, transform 0.3s;
         }
 
         .social-links a:hover {
-            color: var(--cta-color); /* Hover remains bright green */
+            color: var(--cta-color); 
             transform: scale(1.1);
         }
 
@@ -323,6 +332,12 @@
             .menu-wrapper {
                 padding: 20px 10px;
                 border: 2px solid var(--primary-color); 
+                box-shadow: none; 
+            }
+            .contact-social-section {
+                padding: 40px 20px;
+                border-left: none;
+                border-right: none;
                 box-shadow: none; 
             }
             .footer {
@@ -536,7 +551,7 @@
         <hr>
         
         <section id="contact-social" class="contact-social-section">
-            <h2>GET IN TOUCH</h2>
+            <h2>Get In Touch</h2>
             <a href="mailto:hello@brewsquared.com" class="message-button">
                 SEND US A MESSAGE 📧
             </a>
