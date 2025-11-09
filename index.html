@@ -10,13 +10,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
+        /* CSS is now combined directly within the HTML file */
         :root {
-            /* Primary text color (White for contrast against dark background) */
-            --primary-color: #FFFFFF;
-            /* Dark Red Brown background color for perfect photo match */
-            --secondary-color: #5C1E1B; 
-            --light-grey: #f5f5f5;
-            --cta-color: #4CAF50;
+            /* Primary text color: Dark Grey */
+            --primary-color: #333333; 
+            /* Secondary color: Warm Cream/Light Beige (Positive Vibe Background) */
+            --secondary-color: #F8F0E3; 
+            /* Used for Contact Section background */
+            --light-grey: #f5f5f5; 
+            /* Green CTA remains */
+            --cta-color: #4CAF50; 
+            /* Dark Red Brown accent retained for hover/contrast */
+            --dark-accent: #5C1E1B; 
         }
 
         body {
@@ -24,8 +29,8 @@
             font-family: 'Playfair Display', serif;
             margin: 0;
             padding: 0;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
+            background-color: var(--secondary-color); /* Main background is cream */
+            color: var(--primary-color); /* Main text is dark grey */
         }
 
         /* --- Header & Navigation --- */
@@ -35,20 +40,19 @@
             align-items: center;
             padding: 15px 50px;
             border-bottom: 1px solid var(--primary-color); 
-            background-color: var(--secondary-color);
+            background-color: var(--secondary-color); 
             position: sticky;
             top: 0;
             z-index: 99;
         }
 
         .logo {
-            /* Logo font: Now using 'Forum' for a classic, smart, all-caps serif look */
+            /* Logo font: 'Forum' for a classic, smart, all-caps serif look */
             font-family: 'Forum', serif; 
             font-size: 36px;
             font-weight: 400;
-            color: var(--primary-color);
+            color: var(--primary-color); 
             text-decoration: none;
-            /* Ensure the text is uppercase to match the font's design intention */
             text-transform: uppercase; 
             letter-spacing: 2px;
         }
@@ -57,15 +61,14 @@
             margin-left: 25px;
             font-size: 16px;
             font-weight: 600;
-            color: var(--primary-color);
+            color: var(--primary-color); 
             text-decoration: none;
             transition: color 0.3s;
-            /* Use Poppins for navigation links for better readability */
             font-family: 'Poppins', sans-serif; 
         }
 
         .nav-links a:hover {
-            color: var(--light-grey); /* Lighter hover color */
+            color: var(--dark-accent); 
         }
 
         /* --- Hero Section (Home) --- */
@@ -74,16 +77,15 @@
             padding: 0;
             background-color: transparent;
         }
-        
-        /* New Wrapper for positioning text over the image */
+
         .hero-content-wrapper {
-            position: relative; /* Set context for absolute positioning */
+            position: relative; 
             max-width: 100%; 
             width: 100%;
             margin: 0 auto;
             padding: 0; 
             box-sizing: border-box;
-            display: inline-block; /* Ensure it wraps the image */
+            display: inline-block; 
         }
 
         .hero-image-container {
@@ -94,29 +96,28 @@
             background-color: transparent;
             box-sizing: border-box;
         }
-        
+
         .hero-image {
             width: 100%; 
-            height: 500px; /* Set a fixed height for a long photo effect */
-            object-fit: cover; /* Ensures the image covers the area without distortion */
+            height: 500px; 
+            object-fit: cover; 
             border: none; 
             max-width: 100%; 
             display: block; 
         }
-        
-        /* New Text Overlay Styling */
+
         .hero-tagline {
             position: absolute;
-            top: 50%; /* Start at 50% from top */
-            left: 50%; /* Start at 50% from left */
-            transform: translate(-50%, -50%); /* Center based on text size */
-            color: var(--primary-color); /* White text */
-            font-size: 48px; /* Large, bold text */
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            color: var(--primary-color); 
+            font-size: 48px; 
             font-weight: 700;
             font-family: 'Poppins', sans-serif; 
             text-transform: uppercase;
             letter-spacing: 5px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* Drop shadow for visibility */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); 
             padding: 10px 20px;
         }
 
@@ -129,17 +130,16 @@
         }
 
         .menu-section h2, .rent-section h2 {
-            /* H2 font is a clean Sans-Serif (Poppins) */
             font-family: 'Poppins', sans-serif; 
             text-align: center;
             font-size: 30px;
             margin-bottom: 40px;
-            /* Separator uses primary color (white) */
             border-bottom: 3px double var(--primary-color); 
             padding-bottom: 10px;
             text-transform: uppercase;
+            color: var(--primary-color); 
         }
-        
+
         /* Menu Grid Styles */
         .menu-item {
             display: grid;
@@ -148,14 +148,13 @@
             padding: 8px 0;
             font-size: 16px;
             line-height: 1.4;
-            /* Dotted line uses primary color (white) */
             border-bottom: 1px dotted var(--primary-color);
         }
-        
+
         .menu-item .header {
             font-weight: 700;
-            color: var(--light-grey); /* Keeping headers visible */
-            border-bottom: 2px solid var(--primary-color);
+            color: var(--primary-color); 
+            border-bottom: 2px solid var(--primary-color); 
         }
 
         /* --- Rental Space Styles --- */
@@ -167,29 +166,29 @@
         }
 
         .room-card {
-            /* Borders and shadows use primary/secondary colors */
             border: 1px solid var(--primary-color);
             padding: 15px;
             text-align: center;
-            background-color: var(--secondary-color);
-            box-shadow: 4px 4px 0px var(--primary-color);
+            background-color: var(--secondary-color); 
+            box-shadow: 4px 4px 0px var(--primary-color); 
         }
-        
+
         .room-card .price {
             font-size: 18px;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--primary-color); 
             margin-bottom: 15px;
         }
 
         .room-card ul li {
-            border-bottom: 1px dotted var(--primary-color); /* Updated for visibility */
+            border-bottom: 1px dotted var(--primary-color); 
             padding: 5px 0;
             font-size: 15px;
+            color: var(--primary-color); 
         }
-        
+
         .rent-cta {
-            /* Inverted CTAs for better contrast on dark background */
+            /* CTA is dark text on primary (cream) background */
             background-color: var(--primary-color); 
             color: var(--secondary-color);
             padding: 10px 20px;
@@ -201,21 +200,20 @@
         }
 
         .rent-cta:hover {
-            /* Hover reverts to secondary background (dark red brown) with primary text (white) */
+            /* Hover reverts to secondary background (cream) with dark text */
             background-color: var(--secondary-color);
             color: var(--primary-color);
         }
-        
+
         /* --- Contact & Social Section STYLES --- */
         .contact-social-section {
             text-align: center;
             padding: 40px 50px;
             max-width: 1000px;
             margin: 40px auto;
-            /* Borders updated to primary color (white) */
-            border: 2px solid var(--primary-color);
-            background-color: var(--light-grey);
-            color: #000; /* Ensure text inside light-grey box is black */
+            border: 2px solid var(--primary-color); 
+            background-color: var(--light-grey); 
+            color: var(--primary-color); 
         }
 
         .contact-social-section h2 {
@@ -223,15 +221,13 @@
             text-transform: uppercase;
             font-size: 24px;
             margin-bottom: 20px;
-            color: #000;
+            color: var(--primary-color); 
         }
 
         /* Message Button Styling */
         .message-button {
-            /* Button: White text on black background */
-            display: inline-block;
-            background-color: #000000;
-            color: var(--primary-color);
+            background-color: var(--primary-color); 
+            color: var(--secondary-color); 
             padding: 15px 30px;
             text-decoration: none;
             font-size: 18px;
@@ -239,17 +235,18 @@
             margin-bottom: 30px;
             transition: background-color 0.3s;
             font-family: 'Poppins', sans-serif;
+            display: inline-block;
         }
 
         .message-button:hover {
-            background-color: #333;
+            background-color: #555; 
         }
 
         /* Social Icons Styling */
         .social-links a {
             font-size: 30px;
             margin: 0 15px;
-            color: #000; /* Social icons set to black inside the light-grey box */
+            color: var(--primary-color); 
             transition: color 0.3s, transform 0.3s;
         }
 
@@ -257,12 +254,11 @@
             color: var(--cta-color);
             transform: scale(1.1);
         }
-        
+
         /* --- Footer & Contact --- */
         .footer {
-            /* Footer color to black (for contrast with dark background) */
-            background-color: #000000; 
-            color: #FFFFFF; /* Text color in footer is white */
+            background-color: var(--primary-color); /* Footer background is dark grey */
+            color: var(--secondary-color); /* Footer text is cream */
             padding: 30px 50px;
             display: flex;
             justify-content: space-between;
@@ -270,11 +266,11 @@
             font-size: 14px;
             margin-top: 40px;
         }
-        
+
         .footer p {
-            color: #FFFFFF; /* Ensure text is white */
+            color: var(--secondary-color); /* Ensure text is cream */
         }
-        
+
         /* --- Floating Phone Button --- */
         .phone-button {
             position: fixed;
@@ -296,12 +292,12 @@
             z-index: 1000;
             transition: background-color 0.3s, transform 0.3s;
         }
-        
+
         .phone-button:hover {
             background-color: #45a049;
             transform: scale(1.1);
         }
-        
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .navbar {
@@ -317,7 +313,7 @@
                 flex-direction: column;
                 padding: 20px;
                 text-align: center;
-                color: #FFFFFF;
+                color: var(--secondary-color);
             }
             .contact-info p {
                 margin-bottom: 10px;
@@ -326,10 +322,10 @@
                 box-shadow: 2px 2px 0px var(--primary-color);
             }
             .hero-image {
-                height: 300px; /* Adjust height for smaller screens */
+                height: 300px; 
             }
             .hero-tagline {
-                font-size: 24px; /* Smaller font on mobile */
+                font-size: 24px; 
                 letter-spacing: 2px;
             }
         }
@@ -364,11 +360,12 @@
             </div>
         </section>
 
-        ---
+        <hr>
 
         <section id="menu" class="menu-section">
             <h2>OUR MENU ☕</h2>
             <p class="menu-special-note">Prices are in the hundreds of Bahts (B).</p>
+            
             <div class="menu-category">
                 <h3>Coffee Classics</h3>
                 <div class="menu-item header">
@@ -458,7 +455,7 @@
             
         </section>
 
-        ---
+        <hr>
 
         <section id="rent-space" class="rent-section">
             <h2>RENTAL SPACE</h2>
@@ -519,7 +516,7 @@
         </section>
 
 
-        ---
+        <hr>
         
         <section id="contact-social" class="contact-social-section">
             <h2>GET IN TOUCH</h2>
@@ -534,7 +531,7 @@
             </div>
         </section>
         
-        ---
+        <hr>
 
     </main>
 
