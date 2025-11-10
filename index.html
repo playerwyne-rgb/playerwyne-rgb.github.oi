@@ -13,20 +13,14 @@
         :root {
             /* VIBRANT PALETTE (Inspired by Happi Loop) */
             --primary-text-color: #333333; 
-            /* Light Pink for main background or section accent */
             --bg-pink: #FFC0CB; 
-            /* Light Blue for secondary background/sections */
             --bg-blue: #ADD8E6; 
-            /* Vibrant Red/Orange for main CTA/Accent (The "pop" color) */
             --accent-color: #FF6347; 
-            /* Soft Yellow/Cream for card backgrounds */
             --bg-soft: #FFFACD; 
-            /* General background */
             --bg-main: #FFFFFF;
         }
 
         body {
-            /* Use a very heavy, bold Poppins for the playful look */
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
@@ -34,9 +28,8 @@
             color: var(--primary-text-color); 
         }
         
-        /* Set all headings/bold text to be very heavy */
         h1, h2, h3, .logo, .hero-tagline, .rent-cta, .message-button {
-            font-weight: 900; /* Extra bold for the chunky feel */
+            font-weight: 900; 
         }
         
         .section-padding {
@@ -45,15 +38,15 @@
             margin: 0 auto;
         }
 
-        /* --- ANIMATION KEYFRAMES --- */
-        /* Subtle float effect for the main image and cards */
-        @keyframes subtleFloat {
-            0% { transform: translateY(0); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); }
-            50% { transform: translateY(-8px); box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25); } /* Move up and shadow deepens */
-            100% { transform: translateY(0); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); }
+        /* --- NEW ANIMATION KEYFRAMES --- */
+        /* More energetic pulsing for the phone button */
+        @keyframes pulsePop {
+            0% { transform: scale(1); box-shadow: 0 4px 10px rgba(255, 99, 71, 0.4); }
+            50% { transform: scale(1.1); box-shadow: 0 8px 15px rgba(255, 99, 71, 0.7); }
+            100% { transform: scale(1); box-shadow: 0 4px 10px rgba(255, 99, 71, 0.4); }
         }
 
-        /* --- Header & Navigation (Rounded & Simple) --- */
+        /* --- Header & Navigation --- */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -82,7 +75,7 @@
             color: var(--accent-color); 
         }
 
-        /* --- Hero Section (Wider, Rounded Image) --- */
+        /* --- Hero Section --- */
         .hero-section {
             text-align: center;
             background-color: var(--bg-blue); 
@@ -96,9 +89,12 @@
             border-top-left-radius: 50px; 
             border-top-right-radius: 50px;
             display: inline-block;
-            
-            /* Apply Floating Animation to Image Container */
-            animation: subtleFloat 5s ease-in-out infinite;
+            transition: transform 0.3s ease; /* Prepare for interactive hover */
+            /* Removed subtleFloat animation */
+        }
+        
+        .hero-image-container:hover {
+            transform: scale(1.01); /* Slight pop on hover */
         }
 
         .hero-image {
@@ -111,7 +107,6 @@
         }
 
         .hero-tagline {
-            /* Text stroke effect for better contrast over image */
             text-shadow: 
                 -2px -2px 0 var(--accent-color), 
                 2px -2px 0 var(--accent-color), 
@@ -119,7 +114,7 @@
                 2px 2px 0 var(--accent-color); 
         }
         
-        /* --- Menu Section (Wavy Separation) --- */
+        /* --- Menu Section --- */
         .menu-section {
             padding: 0 50px; 
             background-color: var(--bg-main); 
@@ -128,7 +123,6 @@
         .menu-wrapper {
             background-color: var(--bg-main); 
             padding: 80px 40px;
-            /* Creates the rounded "wavy" separation from the blue hero section */
             border-top-left-radius: 100px; 
             border-top-right-radius: 100px; 
             box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.05); 
@@ -154,17 +148,15 @@
             border-bottom: 3px solid var(--accent-color); 
         }
 
-        /* --- Rental Space Styles (Blue Background) --- */
+        /* --- Rental Space Styles --- */
         .rent-section {
             background-color: var(--bg-blue); 
             padding: 80px 50px;
-            border-radius: 50px; /* General section rounding */
+            border-radius: 50px; 
             margin-top: 40px; 
         }
         
         .rent-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
@@ -172,9 +164,14 @@
             border: none;
             background-color: var(--bg-main); 
             border-radius: 25px; 
-            
-            /* Apply Floating Animation to Cards (Slightly slower) */
-            animation: subtleFloat 6s ease-in-out infinite; 
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Pop transition */
+            /* Removed subtleFloat animation */
+        }
+        
+        .room-card:hover {
+            transform: translateY(-5px) scale(1.02); /* Pop up and slightly scale */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
         }
         
         .room-card img {
@@ -185,11 +182,11 @@
             background-color: var(--accent-color); 
             color: var(--bg-main); 
             font-weight: 900;
-            border-radius: 50px; /* Pill button */
+            border-radius: 50px; 
             border: none;
         }
 
-        /* --- Contact & Social Section STYLES (Soft Yellow Rounded Box) --- */
+        /* --- Contact & Social Section STYLES --- */
         .contact-social-section {
             padding: 60px 50px;
             margin: 40px auto;
@@ -209,19 +206,15 @@
             font-weight: 900;
             border-radius: 50px; 
             border: none;
+            transition: transform 0.2s ease-out; /* Pop transition */
+        }
+        
+        .message-button:hover {
+            transform: scale(1.05); /* Aggressive pop on hover */
         }
 
         .social-links a {
             color: var(--primary-text-color); 
-        }
-
-        /* --- Footer & Contact --- */
-        .footer {
-            background-color: var(--primary-text-color); 
-            color: var(--bg-main); 
-            padding: 30px 50px;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
         }
 
         /* --- Floating Phone Button --- */
@@ -229,15 +222,11 @@
             background-color: var(--bg-pink); 
             color: var(--primary-text-color);
             box-shadow: 0 4px 10px rgba(255, 99, 71, 0.6); 
-            /* Subtle wiggle animation for the button */
-            animation: pulseWiggle 1.5s infinite; 
+            /* Applied new pulsePop animation */
+            animation: pulsePop 1.8s infinite; 
         }
 
-        @keyframes pulseWiggle {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+        /* Removed old pulseWiggle keyframes */
 
         /* Responsive Design */
         @media (max-width: 768px) {
