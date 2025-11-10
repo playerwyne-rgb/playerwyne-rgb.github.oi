@@ -12,19 +12,21 @@
     <style>
         :root {
             /* DARK MODE PALETTE */
-            --primary-text-color: #FFFFFF; /* All text is white */
-            --bg-main: #000000; /* Main background is black */
+            --primary-text-color: #FFFFFF; 
+            --bg-main: #000000; 
             
             /* ACCENT COLORS (Adapted for dark contrast) */
-            --accent-color: #FF6347; /* Vibrant Red/Orange for CTAs (Pops great on black) */
-            --bg-pink: #FFC0CB; /* Light pink for accents/buttons */
-            --bg-blue: #556B2F; /* Dark Olive/Muted tone instead of light blue */
+            --accent-color: #FF6347; 
+            --bg-pink: #FFC0CB; 
+            --bg-blue: #556B2F; 
             
             /* CLASSIC MENU THEME COLORS (Adapted for dark mode) */
-            --menu-bg-classic: #1C1C1C; /* Dark grey menu wrapper background */
-            --menu-card-classic: #2A2A2A; /* Slightly lighter grey card background */
-            --menu-accent-classic: #E8C3A8; /* Light Tan/Cream color for menu accents */
-            --menu-divider-classic: #555555; /* Dark grey for dividers */
+            --menu-bg-classic: #1C1C1C; 
+            --menu-card-classic: #2A2A2A; 
+            --menu-accent-classic: #E8C3A8; 
+            --menu-divider-classic: #555555; 
+            /* NEW: Menu Border Color */
+            --menu-border-color: #E8C3A8; /* Light Tan border for contrast */
         }
 
         body {
@@ -54,7 +56,7 @@
             border-radius: 5px; 
         }
 
-        /* --- ANIMATION KEYFRAMES --- */
+        /* --- ANIMATION KEYFRAMES (Unchanged) --- */
         @keyframes pulsePop {
             0% { transform: scale(1); box-shadow: 0 4px 10px rgba(255, 99, 71, 0.4); }
             50% { transform: scale(1.1); box-shadow: 0 8px 15px rgba(255, 99, 71, 0.7); }
@@ -71,8 +73,8 @@
         /* --- Header & Navigation (TOP RIGHT ALIGNED) --- */
         .navbar {
             background-color: #111111; 
-            display: flex; /* Enables alignment control */
-            justify-content: space-between; /* Pushes logo left, links right */
+            display: flex; 
+            justify-content: space-between; 
             align-items: center;
             padding: 15px 50px;
             position: sticky;
@@ -111,8 +113,6 @@
         .hero-section {
             text-align: center;
             background-color: var(--bg-blue); 
-            padding-top: 50px;
-            padding-bottom: 0; 
         }
         
         .hero-image-container {
@@ -157,18 +157,21 @@
             margin-top: 40px;
         }
 
+        /* *** RESTORED MENU CARD STYLE *** */
         .menu-card {
             background-color: var(--menu-card-classic); 
-            border-radius: 30px;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05); 
+            border: 3px solid var(--menu-border-color); /* Added clear border */
+            border-radius: 15px; /* Slightly smaller radius */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Stronger shadow */
             transition: transform 0.2s ease-out;
             cursor: pointer;
             padding: 20px;
             text-align: center;
         }
+        /* ********************************* */
         
         .menu-card:hover {
-            transform: scale(1.05); 
+            transform: scale(1.03); /* Reduced scale slightly for the heavy border look */
             animation: fastBounce 0.5s;
         }
 
@@ -190,9 +193,15 @@
             display: flex; 
             justify-content: space-between;
             font-weight: 700;
-            padding: 5px 0;
-            border-bottom: 2px solid var(--menu-divider-classic); 
+            padding: 10px 0; /* Increased padding for better separation */
+            border-bottom: 1px solid var(--menu-divider-classic); /* Thinner list divider */
+            margin-bottom: 5px; /* Added margin below each item */
         }
+        
+        .menu-card .item-list li:last-child {
+            border-bottom: none; /* Remove border from the last item */
+        }
+
 
         .menu-card .item-list .price-group {
             white-space: nowrap; 
@@ -201,7 +210,7 @@
         .hot-price { color: var(--accent-color); font-weight: 900; } 
         .cold-price { color: var(--bg-pink); font-weight: 900; } 
         
-        /* --- RENTAL SPACE --- */
+        /* --- RENTAL SPACE (Unchanged) --- */
         .rent-section {
             background-color: var(--bg-blue); 
             border-radius: 50px; 
@@ -234,19 +243,12 @@
             border-radius: 20px 20px 0 0;
         }
 
-        .room-card h3, .room-card ul, .room-card p, .room-card a {
-            padding: 0 20px;
-        }
         .room-card ul {
             list-style-type: none;
             padding-left: 20px;
             margin-bottom: 20px;
         }
-        .room-card ul li {
-            padding: 5px 0;
-            font-weight: 700;
-        }
-
+        
         .rent-cta {
             display: block;
             margin: 0 20px 20px 20px;
@@ -260,7 +262,7 @@
             transition: transform 0.2s;
         }
 
-        /* --- Contact & Social Section --- */
+        /* --- Contact & Social Section (Unchanged) --- */
         .contact-social-section {
             padding: 60px 50px;
             margin: 40px auto;
@@ -293,7 +295,7 @@
             transition: color 0.2s;
         }
 
-        /* --- Footer --- */
+        /* --- Footer (Unchanged) --- */
         .footer {
             background-color: #111111; 
             color: var(--menu-divider-classic); 
@@ -301,7 +303,7 @@
             text-align: center;
         }
 
-        /* --- Floating Phone Button --- */
+        /* --- Floating Phone Button (Unchanged) --- */
         .phone-button {
             background-color: var(--bg-pink); 
             color: #000000; 
