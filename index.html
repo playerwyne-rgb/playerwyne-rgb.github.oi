@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BREW SQUARED - Classic Cafe</title>
+    <title>BREW SQUARED - Dark Mode Cafe</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     
@@ -11,27 +11,28 @@
 
     <style>
         :root {
-            /* GENERAL VIBRANT PALETTE (Kept for Hero/Rental pop, but Menu is overridden) */
-            --primary-text-color: #111111; /* Darker text for classic contrast */
-            --bg-pink: #FFC0CB; 
-            --bg-blue: #ADD8E6; 
-            --accent-color: #FF6347; 
-            --bg-main: #FFFFFF;
-
-            /* CLASSIC MENU THEME COLORS */
-            --menu-bg-classic: #FFFFFF; /* Clean white background */
-            --menu-card-classic: #F7F3E8; /* Light beige/cream card background */
-            --menu-accent-classic: #5C4033; /* Dark brown/coffee color for accents */
-            --menu-divider-classic: #D3B9A6; /* Light taupe for dividers */
+            /* DARK MODE PALETTE */
+            --primary-text-color: #FFFFFF; /* All text is white */
+            --bg-main: #000000; /* Main background is black */
+            
+            /* ACCENT COLORS (Adapted for dark contrast) */
+            --accent-color: #FF6347; /* Vibrant Red/Orange for CTAs (Pops great on black) */
+            --bg-pink: #FFC0CB; /* Light pink for accents/buttons */
+            --bg-blue: #556B2F; /* Dark Olive/Muted tone instead of light blue */
+            
+            /* CLASSIC MENU THEME COLORS (Adapted for dark mode) */
+            --menu-bg-classic: #1C1C1C; /* Dark grey menu wrapper background */
+            --menu-card-classic: #2A2A2A; /* Slightly lighter grey card background */
+            --menu-accent-classic: #E8C3A8; /* Light Tan/Cream color for menu accents */
+            --menu-divider-classic: #555555; /* Dark grey for dividers */
         }
 
         body {
-            /* Default body font remains the playful Poppins */
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-main); 
-            color: var(--primary-text-color); 
+            background-color: var(--bg-main); /* SET TO BLACK */
+            color: var(--primary-text-color); /* SET TO WHITE */
         }
         
         h1, h2, h3, .hero-tagline, .rent-cta, .message-button {
@@ -44,15 +45,16 @@
             margin: 0 auto;
         }
 
-        /* --- NEW HEADER FONT STYLE --- */
-        .logo {
-            font-family: 'Playfair Display', serif; /* Apply classic serif font */
-            font-weight: 900;
-            font-size: 38px; /* Slightly larger */
-            color: #000000; /* Set to Black */
-            text-decoration: none;
-            text-transform: none; /* Keep capitalization natural */
+        /* --- NEW CSS FOR ANIMATION ICONS --- */
+        .heading-icon {
+            width: 40px; 
+            height: 40px;
+            vertical-align: middle; 
+            margin-left: 10px;
+            border-radius: 5px; /* Slight rounding for a clean look */
         }
+        /* --- END NEW CSS --- */
+
 
         /* --- ANIMATION KEYFRAMES (Unchanged) --- */
         @keyframes pulsePop {
@@ -68,26 +70,60 @@
             100% { transform: translateY(0); }
         }
 
-        /* --- Header & Navigation --- */
+        /* --- Header & Navigation (ALIGNED RIGHT) --- */
         .navbar {
-            background-color: var(--bg-blue); /* Changed navbar from pink to blue for better contrast with black logo */
+            background-color: #111111; 
+            padding: 15px 50px;
+            position: sticky;
+            top: 0;
+            z-index: 99;
             border-bottom-left-radius: 25px; 
             border-bottom-right-radius: 25px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            /* Navigation links are left as Poppins to keep the playful/modern balance */
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); 
+        }
+        
+        .navbar > * {
+            display: flex;
+            align-items: center;
         }
 
-        /* --- Hero Section (Unchanged) --- */
+        .logo {
+            font-family: 'Playfair Display', serif; 
+            font-weight: 900;
+            font-size: 38px; 
+            color: var(--primary-text-color); 
+            margin-right: auto; 
+        }
+        
+        .nav-links {
+            gap: 20px; 
+        }
+
+        .nav-links a {
+            color: var(--primary-text-color); 
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color); 
+        }
+
+
+        /* --- Hero Section --- */
         .hero-section {
-            background-color: var(--bg-pink); /* Using pink here instead of blue */
+            background-color: var(--bg-blue); 
             padding-top: 50px;
             padding-bottom: 0; 
         }
+        
         .hero-image-container {
-            background-color: var(--bg-soft); 
+            background-color: var(--menu-card-classic); 
         }
+
         .hero-tagline {
-            /* Keep the accent color stroke for visibility */
+            color: var(--primary-text-color); 
             text-shadow: 
                 -2px -2px 0 var(--accent-color), 
                 2px -2px 0 var(--accent-color), 
@@ -95,63 +131,82 @@
                 2px 2px 0 var(--accent-color); 
         }
         
-        /* --- MENU SECTION OVERHAUL --- */
+        /* --- MENU SECTION --- */
         .menu-wrapper {
-            background-color: var(--menu-bg-classic); /* Clean white background */
-            padding: 80px 40px;
-            border-top-left-radius: 100px; 
-            border-top-right-radius: 100px; 
-            box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.05); 
-            
-            /* REMOVE PINK SPOT PATTERN */
-            background-image: none;
+            background-color: var(--menu-bg-classic); 
+            box-shadow: 0 -10px 20px rgba(255, 255, 255, 0.05); 
         }
         
         .menu-section h2 {
-            /* Change header underline to classic brown */
             border-bottom: 5px solid var(--menu-accent-classic); 
         }
 
-        .menu-grid {
-            gap: 30px;
-        }
-
         .menu-card {
-            background-color: var(--menu-card-classic); /* Light Beige/Cream Card */
-            border-radius: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Softer shadow */
+            background-color: var(--menu-card-classic); 
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05); 
         }
 
         .menu-card h3 {
-            color: var(--menu-accent-classic); /* Dark Brown header text */
-            font-family: 'Playfair Display', serif; /* Use serif font for card titles */
-            font-weight: 700;
+            color: var(--menu-accent-classic); 
+            font-family: 'Playfair Display', serif; 
         }
-
-        .menu-card .item-list li {
-            border-bottom: 2px solid var(--menu-divider-classic); /* Taupe solid divider */
-        }
-
-        /* Menu Price Colors for Classic Look */
-        .hot-price { color: var(--menu-accent-classic); font-weight: 900; }
-        .cold-price { color: var(--menu-divider-classic); font-weight: 900; }
         
-        /* --- RENTAL SPACE (Unchanged Pop/Scale) --- */
+        .menu-card .item-list li {
+            border-bottom: 2px solid var(--menu-divider-classic); 
+        }
+
+        /* Menu Price Colors */
+        .hot-price { color: var(--accent-color); font-weight: 900; } 
+        .cold-price { color: var(--bg-pink); font-weight: 900; } 
+        
+        /* --- RENTAL SPACE --- */
         .rent-section {
             background-color: var(--bg-blue); 
-            border-radius: 50px; 
         }
         
-        /* --- Contact & Social Section (Unchanged Pop/Scale) --- */
-        .contact-social-section {
-            background-color: var(--bg-soft); 
+        .room-card {
+            background-color: var(--menu-card-classic); 
+            color: var(--primary-text-color);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
         }
 
-        /* --- Floating Phone Button (Unchanged Pop/Scale) --- */
+        /* --- Contact & Social Section --- */
+        .contact-social-section {
+            background-color: var(--menu-bg-classic); 
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-social-section h2 {
+            color: var(--menu-accent-classic); 
+            border-bottom: 3px solid var(--bg-blue);
+        }
+
+        .social-links a {
+            color: var(--primary-text-color); 
+        }
+
+
+        /* --- Footer --- */
+        .footer {
+            background-color: #111111; 
+            color: var(--menu-divider-classic); 
+        }
+
+        /* --- Floating Phone Button --- */
         .phone-button {
             background-color: var(--bg-pink); 
-            color: var(--primary-text-color);
-            box-shadow: 0 4px 10px rgba(255, 99, 71, 0.6); 
+            color: #000000; 
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); 
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 50%;
+            font-size: 24px;
+            z-index: 100;
             animation: pulsePop 1.8s infinite; 
         }
     </style>
@@ -187,194 +242,28 @@
 
         <section id="menu" class="menu-section">
             <div class="menu-wrapper section-padding">
-                <h2>OUR MENU ☕</h2>
+                <h2>OUR MENU ☕ <img src="coffee-shake.gif" alt="Shaking Coffee Cup GIF" class="heading-icon"></h2>
                 <p style="text-align: center; font-weight: 700;">Classic brews, crafted for inspiration.</p>
                 
                 <div class="menu-grid">
-                    
-                    <div class="menu-card">
-                        <h3>Coffee Classics</h3>
-                        <ul class="item-list">
-                            <li>
-                                <span>Espresso</span>
-                                <span class="price-group"><span class="hot-price">♨️ 40 B</span> / <span class="cold-price">❄️ -</span></span>
-                            </li>
-                            <li>
-                                <span>Americano</span>
-                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
-                            </li>
-                            <li>
-                                <span>Latte / Cappuccino</span>
-                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
-                            </li>
-                            <li>
-                                <span>Mocha / Flat White</span>
-                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
-                            </li>
-                            <li>
-                                <span>Caramel Macchiato</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 55 B</span></span>
-                            </li>
-                            <li>
-                                <span>Pour Over</span>
-                                <span class="price-group"><span class="hot-price">♨️ 55 B</span> / <span class="cold-price">❄️ 60 B</span></span>
-                            </li>
-                        </ul>
                     </div>
-
-                    <div class="menu-card">
-                        <h3>Brew² Signature</h3>
-                        <ul class="item-list">
-                            <li>
-                                <span>Apple + Pour Over</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 85 B</span></span>
-                            </li>
-                            <li>
-                                <span>Mango + Pour Over</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 85 B</span></span>
-                            </li>
-                            <li>
-                                <span>Yuzu Black</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 50 B</span></span>
-                            </li>
-                            <li>
-                                <span>Orange + Pour Over</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 85 B</span></span>
-                            </li>
-                            <li>
-                                <span>Passion + Pour Over</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 85 B</span></span>
-                            </li>
-                            <li style="border-bottom: none;">
-                                <span>**Artisan Favorites!**</span>
-                                <span>&nbsp;</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="menu-card">
-                        <h3>Non-Coffee & Tea</h3>
-                        <ul class="item-list">
-                            <li>
-                                <span>Matcha Latte</span>
-                                <span class="price-group"><span class="hot-price">♨️ 55 B</span> / <span class="cold-price">❄️ 65 B</span></span>
-                            </li>
-                            <li>
-                                <span>Chocolate</span>
-                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
-                            </li>
-                            <li>
-                                <span>Thai Tea</span>
-                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
-                            </li>
-                            <li>
-                                <span>Burmese Tea</span>
-                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
-                            </li>
-                            <li>
-                                <span>Oolong / Green Tea</span>
-                                <span class="price-group"><span class="hot-price">♨️ 50 B</span> / <span class="cold-price">❄️ -</span></span>
-                            </li>
-                            <li style="border-bottom: none;">
-                                <span>Extra Shot/Cheese Foam</span>
-                                <span class="price-group">+10 B</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="menu-card">
-                        <h3>Smoothies & Yogurt</h3>
-                        <ul class="item-list">
-                            <li>
-                                <span>Kiwi Smoothie</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 60 B</span></span>
-                            </li>
-                            <li>
-                                <span>Lychee Smoothie</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 60 B</span></span>
-                            </li>
-                            <li>
-                                <span>Passion Yogurt</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 70 B</span></span>
-                            </li>
-                            <li>
-                                <span>Berry Yogurt</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 70 B</span></span>
-                            </li>
-                            <li>
-                                <span>Fruit Teas (Kiwi/Lemon)</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 45 B</span></span>
-                            </li>
-                            <li style="border-bottom: none;">
-                                <span>**Refreshingly Delicious!**</span>
-                                <span>&nbsp;</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </section>
 
 
         <section id="rent-space" class="rent-section section-padding">
-            <h2>RENTAL SPACE</h2>
-            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem; color: #444; font-weight: 700;">Find your creative zone! Cards pop on hover!</p>
+            <h2>RENTAL SPACE <img src="key-pop.gif" alt="Key Unlock GIF" class="heading-icon"></h2>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem; font-weight: 700;">Find your creative zone! Cards pop on hover!</p>
 
             <div class="rent-grid">
-                
-                <div class="room-card">
-                    <img 
-                        src="coffee shop interior.jpg" 
-                        alt="Private Small Room"
-                    >
-                    <h3>1. Small Room (The Focus Room)</h3>
-                    <p class="price" style="color: var(--accent-color);">400 B / Hour</p>
-                    <ul>
-                        <li>✨ **Capacity: 6 people**</li>
-                        <li>💻 Projector Screen & Wi-Fi</li>
-                        <li>🤫 Sound Insulated</li>
-                    </ul>
-                    <a href="tel:+660619523976" class="rent-cta">Book Now</a>
                 </div>
-
-                <div class="room-card">
-                    <img 
-                        src="akk.jpg" 
-                        alt="Open Workshop Space"
-                    >
-                    <h3>2. Large Room (The Creative Corner)</h3>
-                    <p class="price" style="color: var(--accent-color);">1500 B / Half Day</p>
-                    <ul>
-                        <li>✨ **Capacity: 15 people** (standing)</li>
-                        <li>🎨 Movable Furniture</li>
-                        <li>💡 Natural Light Access</li>
-                    </ul>
-                    <a href="tel:+660619523976" class="rent-cta">Book Now</a>
-                </div>
-
-                <div class="room-card">
-                    <img 
-                        src="https://via.placeholder.com/350x200/FFC0CB/FF6347?text=EVENT+SPACE" 
-                        alt="Large Event Space"
-                    >
-                    <h3>3. Large Meeting Room (The Brew Hall)</h3>
-                    <p class="price" style="color: var(--accent-color);">3000 B / Evening</p>
-                    <ul>
-                        <li>✨ **Capacity: 30 people**</li>
-                        <li>🔊 Integrated Sound System</li>
-                        <li>🍽️ Catering Option Available</li>
-                    </ul>
-                    <a href="tel:+660619523976" class="rent-cta">Book Now</a>
-                </div>
-
-            </div>
             <p style="text-align: center; margin-top: 40px; font-size: 0.9rem;">*Daily rates and extended rental discounts available upon request. Contact us for details.</p>
         </section>
 
 
         <section id="contact-social" class="section-padding">
             <div class="contact-social-section">
-                <h2>Get In Touch</h2>
+                <h2>Get In Touch <img src="mail-wiggle.gif" alt="Wiggling Mail GIF" class="heading-icon"></h2>
                 <a href="mailto:hello@brewsquared.com" class="message-button">
                     SEND US A MESSAGE 📧
                 </a>
