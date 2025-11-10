@@ -68,9 +68,12 @@
             100% { transform: translateY(0); }
         }
 
-        /* --- Header & Navigation --- */
+        /* --- Header & Navigation (TOP RIGHT ALIGNED) --- */
         .navbar {
             background-color: #111111; 
+            display: flex; /* Enables alignment control */
+            justify-content: space-between; /* Pushes logo left, links right */
+            align-items: center;
             padding: 15px 50px;
             position: sticky;
             top: 0;
@@ -80,20 +83,16 @@
             box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); 
         }
         
-        .navbar > * {
-            display: flex;
-            align-items: center;
-        }
-
         .logo {
             font-family: 'Playfair Display', serif; 
             font-weight: 900;
             font-size: 38px; 
             color: var(--primary-text-color); 
-            margin-right: auto; 
+            text-decoration: none;
         }
         
         .nav-links {
+            display: flex;
             gap: 20px; 
         }
 
@@ -110,11 +109,26 @@
 
         /* --- Hero Section --- */
         .hero-section {
+            text-align: center;
             background-color: var(--bg-blue); 
+            padding-top: 50px;
+            padding-bottom: 0; 
         }
         
         .hero-image-container {
+            padding: 20px;
             background-color: var(--menu-card-classic); 
+            border-top-left-radius: 50px; 
+            border-top-right-radius: 50px;
+            display: inline-block;
+        }
+
+        .hero-image {
+            width: 100%; 
+            max-width: 900px; 
+            height: 400px; 
+            object-fit: cover; 
+            border-radius: 35px; 
         }
 
         .hero-tagline {
@@ -149,6 +163,8 @@
             box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05); 
             transition: transform 0.2s ease-out;
             cursor: pointer;
+            padding: 20px;
+            text-align: center;
         }
         
         .menu-card:hover {
@@ -159,6 +175,8 @@
         .menu-card h3 {
             color: var(--menu-accent-classic); 
             font-family: 'Playfair Display', serif; 
+            margin-top: 0;
+            font-size: 24px;
         }
 
         .menu-card .item-list {
@@ -186,6 +204,8 @@
         /* --- RENTAL SPACE --- */
         .rent-section {
             background-color: var(--bg-blue); 
+            border-radius: 50px; 
+            margin-top: 40px; 
         }
         
         .rent-grid {
@@ -199,6 +219,7 @@
             color: var(--primary-text-color);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
             transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; 
+            border-radius: 25px; 
         }
         
         .room-card:hover {
@@ -218,7 +239,7 @@
         }
         .room-card ul {
             list-style-type: none;
-            padding-left: 0;
+            padding-left: 20px;
             margin-bottom: 20px;
         }
         .room-card ul li {
@@ -241,7 +262,10 @@
 
         /* --- Contact & Social Section --- */
         .contact-social-section {
+            padding: 60px 50px;
+            margin: 40px auto;
             background-color: var(--menu-bg-classic); 
+            border-radius: 35px;
             box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
         }
 
@@ -262,10 +286,6 @@
             display: inline-block;
         }
         
-        .message-button:hover {
-            transform: scale(1.05); 
-        }
-
         .social-links a {
             color: var(--primary-text-color); 
             font-size: 24px;
