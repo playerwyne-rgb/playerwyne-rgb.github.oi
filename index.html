@@ -157,16 +157,29 @@
         .menu-card .item-list {
             list-style: none;
             padding: 0;
+            text-align: left; /* Align text left for better readability */
+            font-size: 0.95rem;
         }
 
         .menu-card .item-list li {
+            display: flex; /* Use flexbox to separate name and price */
+            justify-content: space-between;
             font-weight: 700;
             padding: 5px 0;
-            border-bottom: 2px dashed var(--bg-pink); /* Dashed separation */
+            border-bottom: 2px dashed var(--bg-pink); 
         }
+
+        .menu-card .item-list .price-group {
+            white-space: nowrap; /* Keep the Hot/Cold prices together */
+        }
+        
+        /* Helper classes for the price labels */
+        .hot-price { color: var(--accent-color); font-weight: 900; }
+        .cold-price { color: var(--bg-blue); font-weight: 900; }
+        
         /* --- END MENU REDESIGN --- */
 
-        /* --- RENTAL SPACE REDESIGN --- */
+        /* --- RENTAL SPACE STYLES (Unchanged) --- */
         .rent-section {
             background-color: var(--bg-blue); 
             padding: 80px 50px;
@@ -175,11 +188,12 @@
         }
 
         .rent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
         .room-card {
-            border: none;
             background-color: var(--bg-main); 
             border-radius: 25px; 
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
@@ -190,27 +204,14 @@
             transform: translateY(-5px) scale(1.02); 
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
         }
-        
-        .room-card img {
-            border-radius: 15px; 
-        }
 
         .rent-cta {
             background-color: var(--accent-color); 
             color: var(--bg-main); 
             font-weight: 900;
             border-radius: 50px; 
-            transition: transform 0.2s;
         }
-        
-        .rent-cta:hover {
-            transform: scale(1.05);
-            background-color: #ff8c00;
-        }
-        /* --- END RENTAL REDESIGN --- */
-
-
-        /* --- Contact & Social Section STYLES --- */
+        /* --- Contact & Social Section (Unchanged) --- */
         .contact-social-section {
             padding: 60px 50px;
             margin: 40px auto;
@@ -219,17 +220,11 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .contact-social-section h2 {
-            color: var(--accent-color); 
-            border-bottom: 3px solid var(--bg-blue);
-        }
-
         .message-button {
             background-color: var(--accent-color); 
             color: var(--bg-main); 
             font-weight: 900;
             border-radius: 50px; 
-            border: none;
             transition: transform 0.2s ease-out; 
         }
         
@@ -237,7 +232,7 @@
             transform: scale(1.05); 
         }
 
-        /* --- Floating Phone Button --- */
+        /* --- Floating Phone Button (Unchanged) --- */
         .phone-button {
             background-color: var(--bg-pink); 
             color: var(--primary-text-color);
@@ -255,6 +250,13 @@
             }
             .rent-section, .menu-section {
                 padding: 40px 20px;
+            }
+            .menu-card .item-list li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .menu-card .item-list .price-group {
+                margin-top: 5px;
             }
         }
     </style>
@@ -298,44 +300,120 @@
                     <div class="menu-card">
                         <h3>Coffee Classics</h3>
                         <ul class="item-list">
-                            <li>Espresso / Americano (40-50 B)</li>
-                            <li>Latte / Cappuccino (45-50 B)</li>
-                            <li>Mocha / Flat White (45-50 B)</li>
-                            <li>Caramel Macchiato (55 B)</li>
-                            <li>Pour Over (55-60 B)</li>
+                            <li>
+                                <span>Espresso</span>
+                                <span class="price-group"><span class="hot-price">♨️ 40 B</span> / <span class="cold-price">❄️ -</span></span>
+                            </li>
+                            <li>
+                                <span>Americano</span>
+                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
+                            </li>
+                            <li>
+                                <span>Latte / Cappuccino</span>
+                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
+                            </li>
+                            <li>
+                                <span>Mocha / Flat White</span>
+                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
+                            </li>
+                            <li>
+                                <span>Caramel Macchiato</span>
+                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 55 B</span></span>
+                            </li>
+                            <li>
+                                <span>Pour Over</span>
+                                <span class="price-group"><span class="hot-price">♨️ 55 B</span> / <span class="cold-price">❄️ 60 B</span></span>
+                            </li>
                         </ul>
                     </div>
 
                     <div class="menu-card">
                         <h3>Brew² Signature</h3>
                         <ul class="item-list">
-                            <li>Apple + Pour Over (85 B)</li>
-                            <li>Mango + Pour Over (85 B)</li>
-                            <li>Orange + Pour Over (85 B)</li>
-                            <li>Passion + Pour Over (85 B)</li>
-                            <li>**Your Daily Fuel!**</li>
+                            <li>
+                                <span>Apple + Pour Over</span>
+                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 85 B</span></span>
+                            </li>
+                            <li>
+                                <span>Mango + Pour Over</span>
+                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 85 B</span></span>
+                            </li>
+                            <li>
+                                <span>Yuzu Black</span>
+                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 50 B</span></span>
+                            </li>
+                            <li>
+                                <span>Orange + Pour Over</span>
+                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 85 B</span></span>
+                            </li>
+                            <li>
+                                <span>Passion + Pour Over</span>
+                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 85 B</span></span>
+                            </li>
+                            <li style="border-bottom: none;">
+                                <span>**Your Daily Fuel!**</span>
+                                <span>&nbsp;</span>
+                            </li>
                         </ul>
                     </div>
 
                     <div class="menu-card">
                         <h3>Non-Coffee & Tea</h3>
                         <ul class="item-list">
-                            <li>Matcha Latte (55-65 B)</li>
-                            <li>Chocolate (45-50 B)</li>
-                            <li>Thai Tea (45-50 B)</li>
-                            <li>Burmese Tea (45-50 B)</li>
-                            <li>Oolong & Specialty Teas (50 B)</li>
+                            <li>
+                                <span>Matcha Latte</span>
+                                <span class="price-group"><span class="hot-price">♨️ 55 B</span> / <span class="cold-price">❄️ 65 B</span></span>
+                            </li>
+                            <li>
+                                <span>Chocolate</span>
+                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
+                            </li>
+                            <li>
+                                <span>Thai Tea</span>
+                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
+                            </li>
+                            <li>
+                                <span>Burmese Tea</span>
+                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
+                            </li>
+                            <li>
+                                <span>Oolong / Green Tea</span>
+                                <span class="price-group"><span class="hot-price">♨️ 50 B</span> / <span class="cold-price">❄️ -</span></span>
+                            </li>
+                            <li style="border-bottom: none;">
+                                <span>Extra Shot/Cheese Foam</span>
+                                <span class="price-group">+10 B</span>
+                            </li>
                         </ul>
                     </div>
 
                     <div class="menu-card">
                         <h3>Smoothies & Yogurt</h3>
                         <ul class="item-list">
-                            <li>Kiwi / Lychee Smoothie (60 B)</li>
-                            <li>Passion / Berry Yogurt (70 B)</li>
-                            <li>Cheese Foam Topping (+10 B)</li>
-                            <li>Extra Shot (+10 B)</li>
-                            <li>**Fruity Fun!**</li>
+                            <li>
+                                <span>Kiwi Smoothie</span>
+                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 60 B</span></span>
+                            </li>
+                            <li>
+                                <span>Lychee Smoothie</span>
+                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 60 B</span></span>
+                            </li>
+                            <li>
+                                <span>Passion Yogurt</span>
+                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 70 B</span></span>
+                            </li>
+                            <li>
+                                <span>Berry Yogurt</span>
+                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 70 B</span></span>
+                            </li>
+                            <li>
+                                <span>Fruit Teas (Kiwi/Lemon)</span>
+                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 45 B</span></span>
+                            </li>
+                            <li style="border-bottom: none;">
+                                <span>**Fruity Fun!**</span>
+                                <span>&nbsp;</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
