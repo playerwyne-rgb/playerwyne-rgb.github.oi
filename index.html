@@ -105,10 +105,9 @@
             margin-bottom: 15px;
         }
 
-        /* Simplified Menu Item Style */
         .menu-item {
             display: flex;
-            justify-content: space-between; /* Space out Name and Price */
+            justify-content: space-between;
             align-items: center;
             padding: 10px 0;
             font-size: 16px;
@@ -118,13 +117,11 @@
         
         .menu-item .name {
             font-weight: 600;
-            /* Allow name to take up most of the space */
             flex-grow: 1; 
         }
         
         .menu-item .price {
             font-weight: 700;
-            /* Keep price on the far right */
             white-space: nowrap; 
             margin-left: 20px;
         }
@@ -136,6 +133,57 @@
             margin-bottom: 20px;
         }
         
+        /* --- Rental Section Style --- */
+        .rental-section {
+            padding: 80px 50px;
+            background-color: var(--primary-color); 
+            color: var(--secondary-color); 
+            text-align: center;
+        }
+
+        .rental-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            border-bottom: 3px double var(--secondary-color);
+            padding-bottom: 10px;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+
+        .rental-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .rental-section ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 40px;
+        }
+
+        .rental-section li {
+            padding: 5px 0;
+            font-size: 16px;
+        }
+
+        .rental-button {
+            display: inline-block;
+            background-color: #4CAF50; 
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .rental-button:hover {
+            background-color: #45a049;
+        }
+
         /* --- Footer & Contact --- */
         .footer {
             background-color: var(--primary-color);
@@ -175,7 +223,7 @@
             <a class="logo" href="#home">BREW SQUARED</a>
             <div class="nav-links">
                 <a href="#menu">MENU</a>
-                <a href="#contact">VISIT</a>
+                <a href="#rental">RENT</a> <a href="#contact">VISIT</a>
                 <a href="tel:+959123456789">ORDER</a> 
             </div>
         </nav>
