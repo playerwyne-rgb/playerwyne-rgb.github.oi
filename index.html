@@ -3,323 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BREW SQUARED - Dark Mode Cafe</title>
+    <title>BREW SQUARED - Minimalist Cafe</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* DARK MODE PALETTE */
-            --primary-text-color: #FFFFFF; 
-            --bg-main: #000000; 
-            
-            /* ACCENT COLORS (Adapted for dark contrast) */
-            --accent-color: #FF6347; 
-            --bg-pink: #FFC0CB; 
-            --bg-blue: #556B2F; 
-            
-            /* CLASSIC MENU THEME COLORS (Adapted for dark mode) */
-            --menu-bg-classic: #1C1C1C; 
-            --menu-card-classic: #2A2A2A; 
-            --menu-accent-classic: #E8C3A8; 
-            --menu-divider-classic: #555555; 
-            /* NEW: Menu Border Color */
-            --menu-border-color: #E8C3A8; /* Light Tan border for contrast */
+            --primary-color: #000000;
+            --secondary-color: #ffffff;
+            --light-grey: #f5f5f5;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-main); 
-            color: var(--primary-text-color); 
-        }
-        
-        h1, h2, h3, .hero-tagline, .rent-cta, .message-button {
-            font-weight: 900; 
-        }
-        
-        .section-padding {
-            padding: 80px 50px;
-            max-width: 1100px;
-            margin: 0 auto;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
         }
 
-        /* --- ANIMATION ICON STYLES --- */
-        .heading-icon {
-            width: 40px; 
-            height: 40px;
-            vertical-align: middle; 
-            margin-left: 10px;
-            border-radius: 5px; 
-        }
-
-        /* --- ANIMATION KEYFRAMES (Unchanged) --- */
-        @keyframes pulsePop {
-            0% { transform: scale(1); box-shadow: 0 4px 10px rgba(255, 99, 71, 0.4); }
-            50% { transform: scale(1.1); box-shadow: 0 8px 15px rgba(255, 99, 71, 0.7); }
-            100% { transform: scale(1); box-shadow: 0 4px 10px rgba(255, 99, 71, 0.4); }
-        }
-        @keyframes fastBounce {
-            0% { transform: translateY(0); }
-            25% { transform: translateY(-5px); }
-            50% { transform: translateY(0); }
-            75% { transform: translateY(-3px); }
-            100% { transform: translateY(0); }
-        }
-
-        /* --- Header & Navigation (TOP RIGHT ALIGNED) --- */
+        /* --- Header & Navigation --- */
         .navbar {
-            background-color: #111111; 
-            display: flex; 
-            justify-content: space-between; 
+            display: flex;
+            justify-content: space-between;
             align-items: center;
             padding: 15px 50px;
-            position: sticky;
-            top: 0;
-            z-index: 99;
-            border-bottom-left-radius: 25px; 
-            border-bottom-right-radius: 25px;
-            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); 
+            border-bottom: 1px solid var(--light-grey);
+            background-color: var(--secondary-color);
         }
-        
+
         .logo {
-            font-family: 'Playfair Display', serif; 
-            font-weight: 900;
-            font-size: 38px; 
-            color: var(--primary-text-color); 
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
             text-decoration: none;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 20px; 
+            text-transform: uppercase;
         }
 
         .nav-links a {
-            color: var(--primary-text-color); 
+            margin-left: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-color);
             text-decoration: none;
-            font-weight: 700;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--accent-color); 
+            color: #555;
         }
 
-        /* --- Hero Section --- */
+        /* --- Hero Section (Image & Special Menu) --- */
         .hero-section {
             text-align: center;
-            background-color: var(--bg-blue); 
-        }
-        
-        .hero-image-container {
-            padding: 20px;
-            background-color: var(--menu-card-classic); 
-            border-top-left-radius: 50px; 
-            border-top-right-radius: 50px;
-            display: inline-block;
+            padding: 80px 0 40px;
+            background-color: var(--light-grey);
         }
 
         .hero-image {
-            width: 100%; 
-            max-width: 900px; 
-            height: 400px; 
-            object-fit: cover; 
-            border-radius: 35px; 
+            max-width: 600px;
+            width: 90%;
+            height: auto;
+            border: 2px solid var(--primary-color);
+            margin-bottom: 40px;
         }
 
-        .hero-tagline {
-            color: var(--primary-text-color); 
-            text-shadow: 
-                -2px -2px 0 var(--accent-color), 
-                2px -2px 0 var(--accent-color), 
-                -2px 2px 0 var(--accent-color), 
-                2px 2px 0 var(--accent-color); 
-        }
-        
-        /* --- MENU SECTION --- */
-        .menu-wrapper {
-            background-color: var(--menu-bg-classic); 
-            box-shadow: 0 -10px 20px rgba(255, 255, 255, 0.05); 
-        }
-        
-        .menu-section h2 {
-            border-bottom: 5px solid var(--menu-accent-classic); 
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        /* *** RESTORED MENU CARD STYLE *** */
-        .menu-card {
-            background-color: var(--menu-card-classic); 
-            border: 3px solid var(--menu-border-color); /* Added clear border */
-            border-radius: 15px; /* Slightly smaller radius */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Stronger shadow */
-            transition: transform 0.2s ease-out;
-            cursor: pointer;
-            padding: 20px;
-            text-align: center;
-        }
-        /* ********************************* */
-        
-        .menu-card:hover {
-            transform: scale(1.03); /* Reduced scale slightly for the heavy border look */
-            animation: fastBounce 0.5s;
-        }
-
-        .menu-card h3 {
-            color: var(--menu-accent-classic); 
-            font-family: 'Playfair Display', serif; 
-            margin-top: 0;
-            font-size: 24px;
-        }
-
-        .menu-card .item-list {
-            list-style: none;
-            padding: 0;
-            text-align: left; 
-            font-size: 0.95rem;
-        }
-
-        .menu-card .item-list li {
-            display: flex; 
-            justify-content: space-between;
+        .hero-section h2 {
+            font-size: 36px;
             font-weight: 700;
-            padding: 10px 0; /* Increased padding for better separation */
-            border-bottom: 1px solid var(--menu-divider-classic); /* Thinner list divider */
-            margin-bottom: 5px; /* Added margin below each item */
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- Menu Section --- */
+        .menu-section {
+            padding: 60px 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .menu-section h2 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 40px;
+            border-bottom: 3px double var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        .menu-category {
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        .menu-category h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        /* Simplified Menu Item Style */
+        .menu-item {
+            display: flex;
+            justify-content: space-between; /* Space out Name and Price */
+            align-items: center;
+            padding: 10px 0;
+            font-size: 16px;
+            line-height: 1.4;
+            border-bottom: 1px dotted var(--light-grey);
         }
         
-        .menu-card .item-list li:last-child {
-            border-bottom: none; /* Remove border from the last item */
+        .menu-item .name {
+            font-weight: 600;
+            /* Allow name to take up most of the space */
+            flex-grow: 1; 
         }
-
-
-        .menu-card .item-list .price-group {
+        
+        .menu-item .price {
+            font-weight: 700;
+            /* Keep price on the far right */
             white-space: nowrap; 
+            margin-left: 20px;
         }
         
-        .hot-price { color: var(--accent-color); font-weight: 900; } 
-        .cold-price { color: var(--bg-pink); font-weight: 900; } 
-        
-        /* --- RENTAL SPACE (Unchanged) --- */
-        .rent-section {
-            background-color: var(--bg-blue); 
-            border-radius: 50px; 
-            margin-top: 40px; 
-        }
-        
-        .rent-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .room-card {
-            background-color: var(--menu-card-classic); 
-            color: var(--primary-text-color);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
-            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; 
-            border-radius: 25px; 
-        }
-        
-        .room-card:hover {
-            transform: translateY(-5px) scale(1.02); 
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .room-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 20px 20px 0 0;
-        }
-
-        .room-card ul {
-            list-style-type: none;
-            padding-left: 20px;
+        .menu-special-note {
+            text-align: right;
+            font-style: italic;
+            font-size: 14px;
             margin-bottom: 20px;
         }
         
-        .rent-cta {
-            display: block;
-            margin: 0 20px 20px 20px;
-            padding: 10px;
-            text-align: center;
-            background-color: var(--accent-color); 
-            color: var(--bg-main); 
-            font-weight: 900;
-            border-radius: 50px; 
-            text-decoration: none;
-            transition: transform 0.2s;
-        }
-
-        /* --- Contact & Social Section (Unchanged) --- */
-        .contact-social-section {
-            padding: 60px 50px;
-            margin: 40px auto;
-            background-color: var(--menu-bg-classic); 
-            border-radius: 35px;
-            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
-        }
-
-        .contact-social-section h2 {
-            color: var(--menu-accent-classic); 
-            border-bottom: 3px solid var(--bg-blue);
-        }
-
-        .message-button {
-            background-color: var(--accent-color); 
-            color: var(--bg-main); 
-            font-weight: 900;
-            border-radius: 50px; 
-            border: none;
-            transition: transform 0.2s ease-out; 
-            padding: 10px 20px;
-            text-decoration: none;
-            display: inline-block;
+        /* --- Footer & Contact --- */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
         }
         
-        .social-links a {
-            color: var(--primary-text-color); 
-            font-size: 24px;
-            margin-right: 15px;
-            transition: color 0.2s;
-        }
-
-        /* --- Footer (Unchanged) --- */
-        .footer {
-            background-color: #111111; 
-            color: var(--menu-divider-classic); 
-            padding: 20px 50px;
-            text-align: center;
-        }
-
-        /* --- Floating Phone Button (Unchanged) --- */
+        /* --- Floating Phone Button --- */
         .phone-button {
-            background-color: var(--bg-pink); 
-            color: #000000; 
-            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5); 
             position: fixed;
-            right: 20px;
             bottom: 20px;
-            width: 60px;
-            height: 60px;
-            line-height: 60px;
-            text-align: center;
-            border-radius: 50%;
-            font-size: 24px;
-            z-index: 100;
-            animation: pulsePop 1.8s infinite; 
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
             text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+        
+        .phone-button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -329,8 +175,7 @@
             <a class="logo" href="#home">BREW SQUARED</a>
             <div class="nav-links">
                 <a href="#menu">MENU</a>
-                <a href="#rent-space">RENT</a>
-                <a href="#contact-social">CONTACT</a>
+                <a href="#contact">VISIT</a>
                 <a href="tel:+959123456789">ORDER</a> 
             </div>
         </nav>
@@ -338,227 +183,170 @@
 
     <main>
         <section id="home" class="hero-section">
-            <div class="hero-content-wrapper">
-                <div class="hero-image-container">
-                    <img 
-                        src="coffee shop interior.jpg" 
-                        alt="Latte art on a dark counter" 
-                        class="hero-image"
-                    >
-                </div>
-                <div class="hero-tagline">
-                    YOUR DAILY STARTUP FUEL
-                </div>
-            </div>
+            <img 
+                src="image/Elegant cafe interior with baristas.jpg" 
+                alt="Coffee Shop Interior" 
+                class="hero-image"
+            >
+            <h2>TODAY SPECIAL MENU</h2>
         </section>
 
         <section id="menu" class="menu-section">
-            <div class="menu-wrapper section-padding">
-                <h2>OUR MENU ☕ <img src="coffee-shake.gif" alt="Shaking Coffee Cup GIF" class="heading-icon"></h2>
-                <p style="text-align: center; font-weight: 700;">Classic brews, crafted for inspiration.</p>
-                
-                <div class="menu-grid">
-                    
-                    <div class="menu-card">
-                        <h3>Coffee Classics</h3>
-                        <ul class="item-list">
-                            <li>
-                                <span>Espresso</span>
-                                <span class="price-group"><span class="hot-price">♨️ 40 B</span> / <span class="cold-price">❄️ -</span></span>
-                            </li>
-                            <li>
-                                <span>Americano</span>
-                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
-                            </li>
-                            <li>
-                                <span>Latte / Cappuccino</span>
-                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
-                            </li>
-                            <li>
-                                <span>Mocha / Flat White</span>
-                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
-                            </li>
-                            <li>
-                                <span>Caramel Macchiato</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 55 B</span></span>
-                            </li>
-                            <li>
-                                <span>Pour Over</span>
-                                <span class="price-group"><span class="hot-price">♨️ 55 B</span> / <span class="cold-price">❄️ 60 B</span></span>
-                            </li>
-                        </ul>
-                    </div>
+            <h2>OUR MENU</h2>
+            <p class="menu-special-note">Prices are in Thousands of Kyats (Ks) and cover both Hot & Cold unless specified.</p>
 
-                    <div class="menu-card">
-                        <h3>Brew² Signature</h3>
-                        <ul class="item-list">
-                            <li>
-                                <span>Apple + Pour Over</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 85 B</span></span>
-                            </li>
-                            <li>
-                                <span>Mango + Pour Over</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 85 B</span></span>
-                            </li>
-                            <li>
-                                <span>Yuzu Black</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 50 B</span></span>
-                            </li>
-                            <li>
-                                <span>Orange + Pour Over</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 85 B</span></span>
-                            </li>
-                            <li>
-                                <span>Passion + Pour Over</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 85 B</span></span>
-                            </li>
-                            <li style="border-bottom: none;">
-                                <span>**Artisan Favorites!**</span>
-                                <span>&nbsp;</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="menu-card">
-                        <h3>Non-Coffee & Tea</h3>
-                        <ul class="item-list">
-                            <li>
-                                <span>Matcha Latte</span>
-                                <span class="price-group"><span class="hot-price">♨️ 55 B</span> / <span class="cold-price">❄️ 65 B</span></span>
-                            </li>
-                            <li>
-                                <span>Chocolate</span>
-                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
-                            </li>
-                            <li>
-                                <span>Thai Tea</span>
-                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
-                            </li>
-                            <li>
-                                <span>Burmese Tea</span>
-                                <span class="price-group"><span class="hot-price">♨️ 45 B</span> / <span class="cold-price">❄️ 50 B</span></span>
-                            </li>
-                            <li>
-                                <span>Oolong / Green Tea</span>
-                                <span class="price-group"><span class="hot-price">♨️ 50 B</span> / <span class="cold-price">❄️ -</span></span>
-                            </li>
-                            <li style="border-bottom: none;">
-                                <span>Extra Shot/Cheese Foam</span>
-                                <span class="price-group">+10 B</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="menu-card">
-                        <h3>Smoothies & Yogurt</h3>
-                        <ul class="item-list">
-                            <li>
-                                <span>Kiwi Smoothie</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 60 B</span></span>
-                            </li>
-                            <li>
-                                <span>Lychee Smoothie</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 60 B</span></span>
-                            </li>
-                            <li>
-                                <span>Passion Yogurt</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 70 B</span></span>
-                            </li>
-                            <li>
-                                <span>Berry Yogurt</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 70 B</span></span>
-                            </li>
-                            <li>
-                                <span>Fruit Teas (Kiwi/Lemon)</span>
-                                <span class="price-group"><span class="hot-price">♨️ -</span> / <span class="cold-price">❄️ 45 B</span></span>
-                            </li>
-                            <li style="border-bottom: none;">
-                                <span>**Refreshingly Delicious!**</span>
-                                <span>&nbsp;</span>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="menu-category">
+                <h3>Coffee Classics</h3>
+                <div class="menu-item">
+                    <span class="name">Espresso</span>
+                    <span class="price">4.0 Ks (Hot only)</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Americano</span>
+                    <span class="price">4.5 - 5.0 Ks</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Latte / Cappuccino / Flat White</span>
+                    <span class="price">5.0 - 5.5 Ks</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Mocha</span>
+                    <span class="price">5.0 - 5.5 Ks</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Yuzu Black</span>
+                    <span class="price">5.5 Ks (Cold only)</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Caramel Macchiato</span>
+                    <span class="price">5.5 - 6.0 Ks</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Pour Over</span>
+                    <span class="price">5.5 - 6.0 Ks</span>
                 </div>
             </div>
-        </section>
-
-
-        <section id="rent-space" class="rent-section section-padding">
-            <h2>RENTAL SPACE <img src="key-pop.gif" alt="Key Unlock GIF" class="heading-icon"></h2>
-            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1rem; font-weight: 700;">Find your creative zone! Cards pop on hover!</p>
-
-            <div class="rent-grid">
-                
-                <div class="room-card">
-                    <img 
-                        src="coffee shop interior.jpg" 
-                        alt="Private Small Room"
-                    >
-                    <h3>1. Small Room (The Focus Room)</h3>
-                    <p class="price" style="color: var(--accent-color);">400 B / Hour</p>
-                    <ul>
-                        <li>✨ **Capacity: 6 people**</li>
-                        <li>💻 Projector Screen & Wi-Fi</li>
-                        <li>🤫 Sound Insulated</li>
-                    </ul>
-                    <a href="tel:+660619523976" class="rent-cta">Book Now</a>
+            
+            <div class="menu-category">
+                <h3>Brew² Signature & Fruit Tea (Cold Only)</h3>
+                <div class="menu-item">
+                    <span class="name">Apple + Pour Over</span>
+                    <span class="price">6.5 Ks</span>
                 </div>
-
-                <div class="room-card">
-                    <img 
-                        src="akk.jpg" 
-                        alt="Open Workshop Space"
-                    >
-                    <h3>2. Large Room (The Creative Corner)</h3>
-                    <p class="price" style="color: var(--accent-color);">1500 B / Half Day</p>
-                    <ul>
-                        <li>✨ **Capacity: 15 people** (standing)</li>
-                        <li>🎨 Movable Furniture</li>
-                        <li>💡 Natural Light Access</li>
-                    </ul>
-                    <a href="tel:+660619523976" class="rent-cta">Book Now</a>
+                 <div class="menu-item">
+                    <span class="name">Mango + Pour Over</span>
+                    <span class="price">6.5 Ks</span>
                 </div>
-
-                <div class="room-card">
-                    <img 
-                        src="https://via.placeholder.com/350x200/FFC0CB/FF6347?text=EVENT+SPACE" 
-                        alt="Large Event Space"
-                    >
-                    <h3>3. Large Meeting Room (The Brew Hall)</h3>
-                    <p class="price" style="color: var(--accent-color);">3000 B / Evening</p>
-                    <ul>
-                        <li>✨ **Capacity: 30 people**</li>
-                        <li>🔊 Integrated Sound System</li>
-                        <li>🍽️ Catering Option Available</li>
-                    </ul>
-                    <a href="tel:+660619523976" class="rent-cta">Book Now</a>
+                <div class="menu-item">
+                    <span class="name">Orange + Pour Over</span>
+                    <span class="price">6.5 Ks</span>
                 </div>
-
-            </div>
-            <p style="text-align: center; margin-top: 40px; font-size: 0.9rem;">*Daily rates and extended rental discounts available upon request. Contact us for details.</p>
-        </section>
-
-
-        <section id="contact-social" class="section-padding">
-            <div class="contact-social-section">
-                <h2>Get In Touch <img src="mail-wiggle.gif" alt="Wiggling Mail GIF" class="heading-icon"></h2>
-                <a href="mailto:hello@brewsquared.com" class="message-button">
-                    SEND US A MESSAGE 📧
-                </a>
-                <p style="font-size: 1.2rem; font-weight: 700; margin-bottom: 20px;">CONNECT SOCIALLY</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <div class="menu-item">
+                    <span class="name">Passion + Pour Over</span>
+                    <span class="price">6.5 Ks</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Kiwi Fruit Tea</span>
+                    <span class="price">4.5 Ks</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Yuzu Fruit Tea</span>
+                    <span class="price">5.5 Ks</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Lemon Fruit Tea</span>
+                    <span class="price">4.5 Ks</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Passion Fruit Tea</span>
+                    <span class="price">5.0 Ks</span>
                 </div>
             </div>
-        </section>
 
+            <div class="menu-category">
+                <h3>Smoothie / Yogurt (Cold Only)</h3>
+                <div class="menu-item">
+                    <span class="name">Kiwi (Smoothie / Yogurt)</span>
+                    <span class="price">6.0 / 7.0 Ks</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Lychee (Smoothie / Yogurt)</span>
+                    <span class="price">6.0 / 7.0 Ks</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Passion (Smoothie / Yogurt)</span>
+                    <span class="price">6.0 / 7.0 Ks</span>
+                </div>
+                 <div class="menu-item">
+                    <span class="name">Blueberry (Smoothie / Yogurt)</span>
+                    <span class="price">6.0 / 7.0 Ks</span>
+                </div>
+                 <div class="menu-item">
+                    <span class="name">Strawberry (Smoothie / Yogurt)</span>
+                    <span class="price">6.0 / 7.0 Ks</span>
+                </div>
+            </div>
+            
+             <div class="menu-category">
+                <h3>Non-Coffee & Tea</h3>
+                <div class="menu-item">
+                    <span class="name">Matcha Latte</span>
+                    <span class="price">5.5 - 6.0 Ks</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Chocolate</span>
+                    <span class="price">5.0 - 5.5 Ks</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Thai Tea</span>
+                    <span class="price">4.5 - 5.0 Ks</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Lat Phet Yay (Burmese Tea)</span>
+                    <span class="price">4.5 - 5.0 Ks</span>
+                </div>
+            </div>
+            
+            <div class="menu-category">
+                <h3>Wellness Brews & Add-ons</h3>
+                <div class="menu-item">
+                    <span class="name">Oolong Tea / Drew Drop Tea / Itoen Japan Green Tea</span>
+                    <span class="price">5.0 - 5.5 Ks</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Dong Ding Oolong Tea</span>
+                    <span class="price">4.0 Ks (Hot only)</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Specialty Bean Bloom</span>
+                    <span class="price">+ 3.0 Ks</span>
+                </div>
+                <div class="menu-item">
+                    <span class="name">Cheese Foam Topping / Extra Shot</span>
+                    <span class="price">+ 1.0 Ks</span>
+                </div>
+            </div>
+            
+        </section>
+        
+        <section id="rental" class="rental-section">
+            <div class="rental-content">
+                <h2>RENT OUR SPACE</h2>
+                <p>Looking for a cozy, minimalist space for your next event, meeting, or photoshoot? Our cafe is available for private rentals after regular operating hours.</p>
+                <ul>
+                    <li>✨ Perfect for small meetings, workshops, or private gatherings.</li>
+                    <li>💡 Includes high-speed Wi-Fi and ambient lighting.</li>
+                    <li>☕ Custom coffee packages available upon request.</li>
+                </ul>
+                <a href="tel:+959123456789" class="rental-button">INQUIRE ABOUT RENTAL</a>
+            </div>
+        </section>
+        
     </main>
 
     <footer class="footer" id="contact">
         <div class="contact-info">
-            <p>📍 Location: Ground floor 69/66 Phaya Thai Rd, Thanon Phaya Thai, Ratchathewi, Bangkok 10400</p>
+            <p>📍 Location: No. 123, Main Street, Yangon, Myanmar.</p>
             <p>🗓 Reservation: Please call us or book via phone button below.</p>
         </div>
         <div class="copyright">
@@ -566,8 +354,8 @@
         </div>
     </footer>
 
-    <a href="tel:+660619523976" class="phone-button" aria-label="Call Now: 061 952 3976">
-        📞
+    <a href="tel:+959123456789" class="phone-button">
+        📞 Call Us: 09 123 456 789
     </a>
 </body>
 </html>
