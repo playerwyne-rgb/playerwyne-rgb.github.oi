@@ -12,6 +12,7 @@
             --primary-color: #000000;
             --secondary-color: #ffffff;
             --light-grey: #f5f5f5;
+            --border-color: #e0e0e0; /* Light gray for borders */
         }
 
         body {
@@ -53,7 +54,7 @@
             color: #555;
         }
 
-        /* --- Hero Section (Image & Special Menu) --- */
+        /* --- Hero Section --- */
         .hero-section {
             text-align: center;
             padding: 80px 0 40px;
@@ -94,6 +95,9 @@
         .menu-category {
             margin-bottom: 40px;
             padding: 20px;
+            /* Border and Margin added */
+            border: 1px solid var(--border-color); 
+            margin-bottom: 30px;
         }
 
         .menu-category h3 {
@@ -105,25 +109,37 @@
             margin-bottom: 15px;
         }
 
+        /* Menu Item Grid for Hot/Cold Separation */
         .menu-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr; /* Name | Hot | Cold */
+            gap: 10px;
+            padding: 8px 0;
             font-size: 16px;
             line-height: 1.4;
             border-bottom: 1px dotted var(--light-grey);
         }
         
+        .menu-item .header {
+            font-weight: 700;
+            color: #555;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+            text-align: center;
+        }
+        
+        .menu-item .header:first-child {
+            text-align: left;
+        }
+
         .menu-item .name {
             font-weight: 600;
-            flex-grow: 1; 
+            text-align: left;
         }
         
         .menu-item .price {
-            font-weight: 700;
-            white-space: nowrap; 
-            margin-left: 20px;
+            font-weight: 500;
+            text-align: center;
         }
         
         .menu-special-note {
@@ -143,30 +159,50 @@
 
         .rental-section h2 {
             font-size: 32px;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             color: var(--secondary-color);
             border-bottom: 3px double var(--secondary-color);
             padding-bottom: 10px;
             max-width: 500px;
-            margin: 0 auto 30px;
+            margin: 0 auto 50px;
         }
 
-        .rental-section p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin: 0 auto 30px;
+        .rental-rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .rental-room {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border: 1px solid #333; /* Darker border for contrast */
+            text-align: left;
+            border-radius: 5px;
+            transition: transform 0.3s;
         }
 
-        .rental-section ul {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 40px;
+        .rental-room:hover {
+            transform: translateY(-5px);
         }
 
-        .rental-section li {
-            padding: 5px 0;
-            font-size: 16px;
+        .rental-room h3 {
+            color: #fff;
+            border-bottom: 1px dashed #555;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .rental-room li {
+            font-size: 14px;
+            padding: 3px 0;
+        }
+
+        .rental-button-container {
+            margin-top: 40px;
+            text-align: center;
         }
 
         .rental-button {
@@ -223,7 +259,8 @@
             <a class="logo" href="#home">BREW SQUARED</a>
             <div class="nav-links">
                 <a href="#menu">MENU</a>
-                <a href="#rental">RENT</a> <a href="#contact">VISIT</a>
+                <a href="#rental">RENT</a>
+                <a href="#contact">VISIT</a>
                 <a href="tel:+959123456789">ORDER</a> 
             </div>
         </nav>
@@ -241,136 +278,139 @@
 
         <section id="menu" class="menu-section">
             <h2>OUR MENU</h2>
-            <p class="menu-special-note">Prices are in Thousands of Kyats (Ks) and cover both Hot & Cold unless specified.</p>
+            <p class="menu-special-note">Prices are in Thousands of Kyats (Ks).</p>
 
             <div class="menu-category">
                 <h3>Coffee Classics</h3>
+                <div class="menu-item header">
+                    <span class="name">Item</span>
+                    <span class="hot-price header">Hot</span>
+                    <span class="cold-price header">Cold</span>
+                </div>
                 <div class="menu-item">
                     <span class="name">Espresso</span>
-                    <span class="price">4.0 Ks (Hot only)</span>
+                    <span class="price">4.0 Ks</span>
+                    <span class="price"> - </span>
                 </div>
                 <div class="menu-item">
                     <span class="name">Americano</span>
-                    <span class="price">4.5 - 5.0 Ks</span>
+                    <span class="price">4.5 Ks</span>
+                    <span class="price">5.0 Ks</span>
                 </div>
                 <div class="menu-item">
                     <span class="name">Latte / Cappuccino / Flat White</span>
-                    <span class="price">5.0 - 5.5 Ks</span>
+                    <span class="price">5.0 Ks</span>
+                    <span class="price">5.5 Ks</span>
                 </div>
                 <div class="menu-item">
                     <span class="name">Mocha</span>
-                    <span class="price">5.0 - 5.5 Ks</span>
+                    <span class="price">5.0 Ks</span>
+                    <span class="price">5.5 Ks</span>
                 </div>
                 <div class="menu-item">
                     <span class="name">Yuzu Black</span>
-                    <span class="price">5.5 Ks (Cold only)</span>
+                    <span class="price"> - </span>
+                    <span class="price">5.5 Ks</span>
                 </div>
                 <div class="menu-item">
                     <span class="name">Caramel Macchiato</span>
-                    <span class="price">5.5 - 6.0 Ks</span>
+                    <span class="price">5.5 Ks</span>
+                    <span class="price">6.0 Ks</span>
                 </div>
                 <div class="menu-item">
                     <span class="name">Pour Over</span>
-                    <span class="price">5.5 - 6.0 Ks</span>
+                    <span class="price">5.5 Ks</span>
+                    <span class="price">6.0 Ks</span>
                 </div>
             </div>
             
             <div class="menu-category">
-                <h3>Brew² Signature & Fruit Tea (Cold Only)</h3>
-                <div class="menu-item">
-                    <span class="name">Apple + Pour Over</span>
-                    <span class="price">6.5 Ks</span>
-                </div>
-                 <div class="menu-item">
-                    <span class="name">Mango + Pour Over</span>
-                    <span class="price">6.5 Ks</span>
+                <h3>Brew² Signature & Fruit Tea</h3>
+                 <div class="menu-item header">
+                    <span class="name">Item</span>
+                    <span class="hot-price header">Hot</span>
+                    <span class="cold-price header">Cold</span>
                 </div>
                 <div class="menu-item">
-                    <span class="name">Orange + Pour Over</span>
-                    <span class="price">6.5 Ks</span>
-                </div>
-                <div class="menu-item">
-                    <span class="name">Passion + Pour Over</span>
+                    <span class="name">Apple / Mango / Orange / Passion + Pour Over</span>
+                    <span class="price"> - </span>
                     <span class="price">6.5 Ks</span>
                 </div>
                 <div class="menu-item">
-                    <span class="name">Kiwi Fruit Tea</span>
+                    <span class="name">Kiwi Fruit Tea / Lemon Fruit Tea</span>
+                    <span class="price"> - </span>
                     <span class="price">4.5 Ks</span>
                 </div>
                 <div class="menu-item">
-                    <span class="name">Yuzu Fruit Tea</span>
+                    <span class="name">Yuzu Fruit Tea / Passion Fruit Tea</span>
                     <span class="price">5.5 Ks</span>
-                </div>
-                <div class="menu-item">
-                    <span class="name">Lemon Fruit Tea</span>
-                    <span class="price">4.5 Ks</span>
-                </div>
-                <div class="menu-item">
-                    <span class="name">Passion Fruit Tea</span>
                     <span class="price">5.0 Ks</span>
                 </div>
             </div>
 
             <div class="menu-category">
                 <h3>Smoothie / Yogurt (Cold Only)</h3>
-                <div class="menu-item">
-                    <span class="name">Kiwi (Smoothie / Yogurt)</span>
-                    <span class="price">6.0 / 7.0 Ks</span>
+                 <div class="menu-item header">
+                    <span class="name">Item</span>
+                    <span class="hot-price header">Smoothie</span>
+                    <span class="cold-price header">Yogurt</span>
                 </div>
                 <div class="menu-item">
-                    <span class="name">Lychee (Smoothie / Yogurt)</span>
-                    <span class="price">6.0 / 7.0 Ks</span>
-                </div>
-                <div class="menu-item">
-                    <span class="name">Passion (Smoothie / Yogurt)</span>
-                    <span class="price">6.0 / 7.0 Ks</span>
-                </div>
-                 <div class="menu-item">
-                    <span class="name">Blueberry (Smoothie / Yogurt)</span>
-                    <span class="price">6.0 / 7.0 Ks</span>
-                </div>
-                 <div class="menu-item">
-                    <span class="name">Strawberry (Smoothie / Yogurt)</span>
-                    <span class="price">6.0 / 7.0 Ks</span>
+                    <span class="name">Kiwi / Lychee / Passion / Blueberry / Strawberry</span>
+                    <span class="price">6.0 Ks</span>
+                    <span class="price">7.0 Ks</span>
                 </div>
             </div>
             
              <div class="menu-category">
                 <h3>Non-Coffee & Tea</h3>
+                 <div class="menu-item header">
+                    <span class="name">Item</span>
+                    <span class="hot-price header">Hot</span>
+                    <span class="cold-price header">Cold</span>
+                </div>
                 <div class="menu-item">
                     <span class="name">Matcha Latte</span>
-                    <span class="price">5.5 - 6.0 Ks</span>
+                    <span class="price">5.5 Ks</span>
+                    <span class="price">6.0 Ks</span>
                 </div>
                 <div class="menu-item">
                     <span class="name">Chocolate</span>
-                    <span class="price">5.0 - 5.5 Ks</span>
+                    <span class="price">5.0 Ks</span>
+                    <span class="price">5.5 Ks</span>
                 </div>
                 <div class="menu-item">
-                    <span class="name">Thai Tea</span>
-                    <span class="price">4.5 - 5.0 Ks</span>
-                </div>
-                <div class="menu-item">
-                    <span class="name">Lat Phet Yay (Burmese Tea)</span>
-                    <span class="price">4.5 - 5.0 Ks</span>
+                    <span class="name">Thai Tea / Lat Phet Yay (Burmese Tea)</span>
+                    <span class="price">4.5 Ks</span>
+                    <span class="price">5.0 Ks</span>
                 </div>
             </div>
             
             <div class="menu-category">
                 <h3>Wellness Brews & Add-ons</h3>
+                <div class="menu-item header">
+                    <span class="name">Item</span>
+                    <span class="hot-price header">Hot</span>
+                    <span class="cold-price header">Cold</span>
+                </div>
                 <div class="menu-item">
                     <span class="name">Oolong Tea / Drew Drop Tea / Itoen Japan Green Tea</span>
-                    <span class="price">5.0 - 5.5 Ks</span>
+                    <span class="price">5.0 Ks</span>
+                    <span class="price">5.5 Ks</span>
                 </div>
                 <div class="menu-item">
                     <span class="name">Dong Ding Oolong Tea</span>
-                    <span class="price">4.0 Ks (Hot only)</span>
+                    <span class="price">4.0 Ks</span>
+                    <span class="price"> - </span>
                 </div>
                 <div class="menu-item">
                     <span class="name">Specialty Bean Bloom</span>
                     <span class="price">+ 3.0 Ks</span>
+                    <span class="price">+ 3.0 Ks</span>
                 </div>
                 <div class="menu-item">
                     <span class="name">Cheese Foam Topping / Extra Shot</span>
+                    <span class="price">N/A</span>
                     <span class="price">+ 1.0 Ks</span>
                 </div>
             </div>
@@ -378,14 +418,45 @@
         </section>
         
         <section id="rental" class="rental-section">
-            <div class="rental-content">
-                <h2>RENT OUR SPACE</h2>
-                <p>Looking for a cozy, minimalist space for your next event, meeting, or photoshoot? Our cafe is available for private rentals after regular operating hours.</p>
-                <ul>
-                    <li>✨ Perfect for small meetings, workshops, or private gatherings.</li>
-                    <li>💡 Includes high-speed Wi-Fi and ambient lighting.</li>
-                    <li>☕ Custom coffee packages available upon request.</li>
-                </ul>
+            <h2>RENT OUR SPACE - Choose Your Room</h2>
+            
+            <div class="rental-rooms-grid">
+                
+                <div class="rental-room">
+                    <h3>The Focus Room 💡</h3>
+                    <p>Ideal for quiet work or small interviews.</p>
+                    <ul>
+                        <li>Private seating for up to 4 people</li>
+                        <li>High-speed dedicated Wi-Fi</li>
+                        <li>Whiteboard available</li>
+                        <li>Hourly Rate: **15,000 Ks**</li>
+                    </ul>
+                </div>
+
+                <div class="rental-room">
+                    <h3>The Collaboration Area 🤝</h3>
+                    <p>A semi-private space perfect for team meetings.</p>
+                    <ul>
+                        <li>Large table seating for 6-8 people</li>
+                        <li>A/V screen access (on request)</li>
+                        <li>Plenty of natural light</li>
+                        <li>Hourly Rate: **25,000 Ks**</li>
+                    </ul>
+                </div>
+
+                <div class="rental-room">
+                    <h3>The Event Lounge ✨</h3>
+                    <p>The entire back section for parties or workshops.</p>
+                    <ul>
+                        <li>Capacity: Up to 25 standing guests</li>
+                        <li>Dedicated sound system</li>
+                        <li>Custom catering packages</li>
+                        <li>Min. 3-Hour Booking: **120,000 Ks**</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="rental-button-container">
                 <a href="tel:+959123456789" class="rental-button">INQUIRE ABOUT RENTAL</a>
             </div>
         </section>
