@@ -54,18 +54,22 @@
             color: #555;
         }
 
-        /* --- Hero Section --- */
+        /* --- Hero Section - Adjusted for Full Width Image --- */
         .hero-section {
             text-align: center;
-            padding: 80px 0 40px;
+            /* Reduced vertical padding to keep the image high on the page */
+            padding: 40px 0 40px; 
             background-color: var(--light-grey);
+            /* Important: Ensure no side padding is here to allow the image to touch the edge */
         }
 
         .hero-image {
-            max-width: 600px;
-            width: 90%;
-            height: auto;
-            border: 2px solid var(--primary-color);
+            /* *** KEY CHANGE: Full Width and Fixed Landscape Height *** */
+            max-width: 100%; /* Ensures it fills the container */
+            width: 100%;     /* Forces it to take the full width */
+            height: 500px;   /* Sets a fixed height for a prominent landscape banner */
+            object-fit: cover; /* Ensures the image covers the area, cropping if necessary */
+            border: none;    /* Remove the old border for a modern look */
             margin-bottom: 40px;
         }
 
@@ -95,7 +99,6 @@
         .menu-category {
             margin-bottom: 40px;
             padding: 20px;
-            /* Border and Margin added */
             border: 1px solid var(--border-color); 
             margin-bottom: 30px;
         }
@@ -142,6 +145,7 @@
             text-align: center;
         }
         
+        /* Corrected currency note style */
         .menu-special-note {
             text-align: right;
             font-style: italic;
@@ -261,7 +265,7 @@
                 <a href="#menu">MENU</a>
                 <a href="#rental">RENT</a>
                 <a href="#contact">VISIT</a>
-                <a href="tel:+66818144768">ORDER</a> 
+                <a href="tel:+66818144768">ORDER</a> 
             </div>
         </nav>
     </header>
