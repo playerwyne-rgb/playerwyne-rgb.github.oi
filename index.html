@@ -426,38 +426,153 @@
             
             <div class="rental-rooms-grid">
                 
+                </div>
+                <!-- Small Room with Slider -->
                 <div class="rental-room">
-                    <h3>The Focus Room 💡</h3>
-                    <p>Ideal for quiet work or small interviews.</p>
-                    <ul>
-                        <li>Private seating for up to 4 people</li>
-                        <li>High-speed dedicated Wi-Fi</li>
-                        <li>Whiteboard available</li>
-                        <li>Hourly Rate: **300 B**</li>
-                    </ul>
+                    <div class="slider-container" id="slider-small">
+                        <div class="slider-images">
+                            <img src="image/small_room_1.jpg" alt="Small Room - View 1" class="slider-image">
+                            <img src="image/small_room_2.jpg" alt="Small Room - View 2" class="slider-image">
+                            <img src="image/small_room_3.jpg" alt="Small Room - View 3" class="slider-image">
+                        </div>
+                        <button class="slider-arrow left" onclick="moveSlide('slider-small', -1)">‹</button>
+                        <button class="slider-arrow right" onclick="moveSlide('slider-small', 1)">›</button>
+                        <div class="slider-dots">
+                            <span class="slider-dot active" onclick="currentSlide('slider-small', 0)"></span>
+                            <span class="slider-dot" onclick="currentSlide('slider-small', 1)"></span>
+                            <span class="slider-dot" onclick="currentSlide('slider-small', 2)"></span>
+                        </div>
+                    </div>
+                    <div class="rental-room-content">
+                        <h3>Small Room 💡</h3>
+                        <p>Perfect for focused work or intimate meetings.</p>
+                        <ul>
+                            <li>Capacity: Up to 4 people</li>
+                            <li>High-speed dedicated Wi-Fi</li>
+                            <li>Whiteboard available</li>
+                            <li>Natural lighting</li>
+                        </ul>
+                        <div class="rental-info-highlight">
+                            <p><strong>Rate:</strong> 300 THB per hour</p>
+                        </div>
+                    </div>
                 </div>
 
+             <!-- Medium Room with Slider -->
                 <div class="rental-room">
-                    <h3>The Collaboration Area 🤝</h3>
-                    <p>A semi-private space perfect for team meetings.</p>
-                    <ul>
-                        <li>Large table seating for 6-8 people</li>
-                        <li>A/V screen access (on request)</li>
-                        <li>Plenty of natural light</li>
-                        <li>Hourly Rate: **500 B**</li>
-                    </ul>
+                    <div class="slider-container" id="slider-medium">
+                        <div class="slider-images">
+                            <img src="image/medium_room_1.jpg" alt="Medium Room - View 1" class="slider-image">
+                            <img src="image/medium_room_2.jpg" alt="Medium Room - View 2" class="slider-image">
+                            <img src="image/medium_room_3.jpg" alt="Medium Room - View 3" class="slider-image">
+                        </div>
+                        <button class="slider-arrow left" onclick="moveSlide('slider-medium', -1)">‹</button>
+                        <button class="slider-arrow right" onclick="moveSlide('slider-medium', 1)">›</button>
+                        <div class="slider-dots">
+                            <span class="slider-dot active" onclick="currentSlide('slider-medium', 0)"></span>
+                            <span class="slider-dot" onclick="currentSlide('slider-medium', 1)"></span>
+                            <span class="slider-dot" onclick="currentSlide('slider-medium', 2)"></span>
+                        </div>
+                    </div>
+                    <div class="rental-room-content">
+                        <h3>Medium Room 🤝</h3>
+                        <p>Ideal for small team meetings and workshops.</p>
+                        <ul>
+                            <li>Capacity: Up to 6 people</li>
+                            <li>A/V screen access (on request)</li>
+                            <li>Comfortable seating arrangement</li>
+                            <li>Plenty of natural light</li>
+                        </ul>
+                        <div class="rental-info-highlight">
+                            <p><strong>Rate:</strong> 350 THB per hour</p>
+                        </div>
+                    </div>
                 </div>
+               <!-- Large Room with Slider -->
+                <div class="rental-room">
+                    <div class="slider-container" id="slider-large">
+                        <div class="slider-images">
+                            <img src="image/large_room_1.jpg" alt="Large Room - View 1" class="slider-image">
+                            <img src="image/large_room_2.jpg" alt="Large Room - View 2" class="slider-image">
+                            <img src="image/large_room_3.jpg" alt="Large Room - View 3" class="slider-image">
+                        </div>
+                        <button class="slider-arrow left" onclick="moveSlide('slider-large', -1)">‹</button>
+                        <button class="slider-arrow right" onclick="moveSlide('slider-large', 1)">›</button>
+                        <div class="slider-dots">
+                            <span class="slider-dot active" onclick="currentSlide('slider-large', 0)"></span>
+                            <span class="slider-dot" onclick="currentSlide('slider-large', 1)"></span>
+                            <span class="slider-dot" onclick="currentSlide('slider-large', 2)"></span>
+                        </div>
+                    </div>
+                    <div class="rental-room-content">
+                        <h3>Large Room 📊</h3>
+                        <p>Spacious room for events and presentations.</p>
+                        <ul>
+                            <li>Capacity: Up to 20 people</li>
+                            <li>Projector & sound system</li>
+                            <li>Flexible seating arrangements</li>
+                            <li>Perfect for workshops & training</li>
+                        </ul>
+                        <div class="rental-info-highlight">
+                            <p><strong>Rate:</strong> 1,000 THB per hour</p>
+                        </div>
+                    </div>
+                </div>
+             <!-- Main Venue with Slider -->
+                <div class="rental-room">
+                    <div class="slider-container" id="slider-main">
+                        <div class="slider-images">
+                            <img src="image/main_venue_1.jpg" alt="Main Venue - View 1" class="slider-image">
+                            <img src="image/main_venue_2.jpg" alt="Main Venue - View 2" class="slider-image">
+                            <img src="image/main_venue_3.jpg" alt="Main Venue - View 3" class="slider-image">
+                        </div>
+                        <button class="slider-arrow left" onclick="moveSlide('slider-main', -1)">‹</button>
+                        <button class="slider-arrow right" onclick="moveSlide('slider-main', 1)">›</button>
+                        <div class="slider-dots">
+                            <span class="slider-dot active" onclick="currentSlide('slider-main', 0)"></span>
+                            <span class="slider-dot" onclick="currentSlide('slider-main', 1)"></span>
+                            <span class="slider-dot" onclick="currentSlide('slider-main', 2)"></span>
+                        </div>
+                    </div>
+                    <div class="rental-room-content">
+                        <h3>Main Venue ✨</h3>
+                        <p>Our largest space for major events and gatherings.</p>
+                        <ul>
+                            <li>Capacity: Up to 100 people</li>
+                            <li>Full venue rental</li>
+                            <li>Professional sound & lighting</li>
+                            <li>Custom catering packages available</li>
+                        </ul>
+                        <div class="rental-info-highlight">
+                            <p><strong>Rate:</strong> 3,000 THB per hour</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      
+        <!-- Special Pricing Info (AFTER room cards) -->
+            <div class="rental-pricing-info">
+                <h3>📋 Special Rates & Packages</h3>
+                <div class="pricing-grid">
+                    <div class="pricing-item">
+                        <h4>Full Day Rental (6+ Hours)</h4>
+                        <p><strong>40% discount</strong> on total rental fees</p>
+                        <p style="margin-top: 10px; font-size: 13px; color: #aaa;">Available for all room types</p>
+                    </div>
+                    <div class="pricing-item">
+                        <h4>Main Venue - 8 Hour Package</h4>
+                        <p><strong>Non-Exclusive:</strong> 10,000 THB</p>
+                        <p><strong>Exclusive Rental:</strong> 15,000 THB</p>
+                        <p style="margin-top: 10px; font-size: 13px; color: #aaa;">Best for full-day events</p>
+                    </div>
+                </div>
+            </div>
 
-                <div class="rental-room">
-                    <h3>The Event Lounge ✨</h3>
-                    <p>The entire back section for parties or workshops.</p>
-                    <ul>
-                        <li>Capacity: Up to 25 standing guests</li>
-                        <li>Dedicated sound system</li>
-                        <li>Custom catering packages</li>
-                        <li>Min. 3-Hour Booking: **1000 B**</li>
-                    </ul>
-                </div>
+            <!-- Coffee Promotion -->
+            <div class="rental-promo">
+                <h3>☕ À La Carte Special Offer</h3>
+                <p><strong>Spend 1,000 THB on coffee/drinks</strong></p>
+                <p>Get <strong>1 hour FREE</strong> in our Small Room!</p>
             </div>
             
             <div class="rental-button-container">
