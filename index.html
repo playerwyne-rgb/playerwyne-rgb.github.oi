@@ -286,12 +286,23 @@
 .slider-dot.active {
     background: #fff;
 }
-/* --- Special Pricing Boxes --- */
+/* --- Special Pricing Section --- */
 .rental-pricing-info {
     margin-top: 60px;
     text-align: center;
 }
 
+/* --- Special Pricing Header Box --- */
+.pricing-header {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    padding: 18px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -660,7 +671,9 @@
       
         <!-- Special Pricing Info (AFTER room cards) -->
             <div class="rental-pricing-info">
-                <h3>📋 Special Rates & Packages</h3>
+                <div class="pricing-header">
+                📋 Special Rates & Packages
+                </div>
                 <div class="pricing-grid">
                     <div class="pricing-item">
                         <h4>Full Day Rental (6+ Hours)</h4>
