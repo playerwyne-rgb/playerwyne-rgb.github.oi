@@ -616,5 +616,63 @@
     <a href="tel:+66818144768" class="phone-button">
         📞 Call Us: 08 18 14 47 68
     </a>
+
+    <script>
+let sliders = {};
+
+function initSlider(id) {
+    sliders[id] = {
+        index: 0,
+        images: document.querySelectorAll(`#${id} .slider-image`),
+        dots: document.querySelectorAll(`#${id} .slider-dot`)
+    };
+}
+
+function moveSlide(id, direction) {
+    let slider = sliders[id];
+    slider.index += direction;
+
+    if (slider.index < 0) {
+        slider.index = slider.images.length - 1;
+    }
+
+    if (slider.index >= slider.images.length) {
+        slider.index = 0;
+    }
+
+    updateSlider(id);
+}
+
+function currentSlide(id, index) {
+    sliders[id].index = index;
+    updateSlider(id);
+}
+
+function updateSlider(id) {
+    let slider = sliders[id];
+
+    slider.images.forEach((img, i) => {
+        img.style.display = i === slider.index ? "block" : "none";
+    });
+
+    slider.dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === slider.index);
+    });
+}
+
+window.onload = function () {
+    initSlider('slider-small');
+    initSlider('slider-medium');
+    initSlider('slider-large');
+    initSlider('slider-main');
+
+    updateSlider('slider-small');
+    updateSlider('slider-medium');
+    updateSlider('slider-large');
+    updateSlider('slider-main');
+};
+</script>
+
+
 </body>
 </html>
