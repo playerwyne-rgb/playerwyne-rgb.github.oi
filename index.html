@@ -286,7 +286,52 @@
 .slider-dot.active {
     background: #fff;
 }
+/* --- Special Pricing Boxes --- */
+.rental-pricing-info {
+    margin-top: 60px;
+    text-align: center;
+}
 
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.pricing-item {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    padding: 25px;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.pricing-item:hover {
+    transform: translateY(-5px);
+}
+
+.pricing-item h4 {
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.pricing-item p {
+    font-size: 14px;
+    margin: 6px 0;
+}
+
+.rental-promo {
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 40px auto 0;
+}
+
+        
         /* --- Footer & Contact --- */
         .footer {
             background-color: var(--primary-color);
