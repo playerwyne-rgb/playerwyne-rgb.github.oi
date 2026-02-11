@@ -660,61 +660,56 @@
     </a>
 
     <script>
-let sliders = {};
+document.addEventListener("DOMContentLoaded", function () {
 
-function initSlider(id) {
-    sliders[id] = {
-        index: 0,
-        images: document.querySelectorAll(`#${id} .slider-image`),
-        dots: document.querySelectorAll(`#${id} .slider-dot`)
+    const sliders = {};
+
+    function initSlider(id) {
+        const container = document.getElementById(id);
+        const images = container.querySelectorAll(".slider-image");
+        const dots = container.querySelectorAll(".slider-dot");
+
+        sliders[id] = {
+            index: 0,
+            images: images,
+            dots: dots
+        };
+
+        if (images.length > 0) {
+            images[0].style.display = "block";
+        }
+    }
+
+    window.moveSlide = function (id, direction) {
+        const slider = sliders[id];
+        slider.images[slider.index].style.display = "none";
+
+        slider.index += direction;
+
+        if (slider.index < 0) {
+            slider.index = slider.images.length - 1;
+        }
+
+        if (slider.index >= slider.images.length) {
+            slider.index = 0;
+        }
+
+        slider.images[slider.index].style.display = "block";
     };
-}
 
-function moveSlide(id, direction) {
-    let slider = sliders[id];
-    slider.index += direction;
+    window.currentSlide = function (id, index) {
+        const slider = sliders[id];
+        slider.images[slider.index].style.display = "none";
+        slider.index = index;
+        slider.images[slider.index].style.display = "block";
+    };
 
-    if (slider.index < 0) {
-        slider.index = slider.images.length - 1;
-    }
+    initSlider("slider-small");
+    initSlider("slider-medium");
+    initSlider("slider-large");
+    initSlider("slider-main");
 
-    if (slider.index >= slider.images.length) {
-        slider.index = 0;
-    }
-
-    updateSlider(id);
-}
-
-function currentSlide(id, index) {
-    sliders[id].index = index;
-    updateSlider(id);
-}
-
-function updateSlider(id) {
-    let slider = sliders[id];
-
-    slider.images.forEach((img, i) => {
-        img.style.display = i === slider.index ? "block" : "none";
-    });
-
-    slider.dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === slider.index);
-    });
-}
-
-window.onload = function () {
-    initSlider('slider-small');
-    initSlider('slider-medium');
-    initSlider('slider-large');
-    initSlider('slider-main');
-
-    updateSlider('slider-small');
-    updateSlider('slider-medium');
-    updateSlider('slider-large');
-    updateSlider('slider-main');
-};
-</script>
-
-
+});
+    </script>
 </body>
 </html>
