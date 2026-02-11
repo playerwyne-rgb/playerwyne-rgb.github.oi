@@ -247,6 +247,45 @@
     object-fit: cover;
     display: none;
 }
+/* --- Slider Controls --- */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.slider-arrow.left {
+    left: 10px;
+}
+
+.slider-arrow.right {
+    right: 10px;
+}
+
+.slider-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.slider-dot {
+    height: 8px;
+    width: 8px;
+    background: #aaa;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.slider-dot.active {
+    background: #fff;
+}
 
         /* --- Footer & Contact --- */
         .footer {
