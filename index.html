@@ -21,25 +21,39 @@
             padding: 0;
             background-color: var(--secondary-color);
             color: var(--primary-color);
+            padding-top: 80px;
         }
 
         /* --- Header & Navigation --- */
         .navbar {
+            position: fixed;
+            top: 0;
+             left: 0;
+            width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 50px;
             border-bottom: 1px solid var(--light-grey);
             background-color: var(--secondary-color);
+            z-index: 1000;
         }
 
         .logo {
-            font-size: 24px;
+           display: flex;
+            align-items: center;
+             font-size: 24px;
             font-weight: 700;
             color: var(--primary-color);
             text-decoration: none;
             text-transform: uppercase;
+            
         }
+        .logo-img {
+    height: 28px;  /* small logo */
+    width: auto;
+    margin-right: 10px;
+}
 
         .nav-links a {
             margin-left: 25px;
@@ -377,12 +391,12 @@
     </style>
 </head>
 <body>
-    <header class="navbar">
-    <img src="image/brewsquared-logo.png" alt="BrewSquared Logo" class="logo">
-</header>
     <header>
         <nav class="navbar">
-            <a class="logo" href="#home">BREW SQUARED</a>
+          <a class="logo" href="#home">
+    <img src="image/brewsquared-logo.png" alt="Logo" class="logo-img">
+    BREW SQUARED
+</a>
             <div class="nav-links">
                 <a href="#menu">MENU</a>
                 <a href="#rental">RENT</a>
